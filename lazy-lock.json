@@ -1,4 +1,5 @@
 {
+  "mini.clue": { "branch": "main", "commit": "9d3001a921809f951e4fed04e0b0275bec778d6c" },
   "mini.icons": { "branch": "main", "commit": "94848dad1589a199f876539bd79befb0c5e3abf0" },
   "neoscroll.nvim": { "branch": "master", "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
