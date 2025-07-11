@@ -37,6 +37,8 @@ vim.keymap.set("n", "<leader>q", function()
   vim.cmd("q")
 end, { desc = "Close Current Window" })
 
+vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open Lazy Page" })
+
 -- Open Mason
 -- vim.keymap.set("n", "<leader>lm", function()
 --   vim.cmd("Mason")
