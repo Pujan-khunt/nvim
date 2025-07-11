@@ -6,15 +6,15 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Lines Up" }
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" })
 
 -- Keep cursor in middle while jumping up and down with C-d and C-u
-vim.keymap.set("n", "<M-j>", "<C-d>zz", { desc = "Maintain Cursor In Middle While Jumping Down" })
-vim.keymap.set("n", "<M-k>", "<C-u>zz", { desc = "Maintain Cursor In Middle While Jumping Up" })
+vim.keymap.set("n", "<c-j>", "<C-d>zz", { desc = "Maintain Cursor In Middle While Jumping Down", noremap = true })
+vim.keymap.set("n", "<c-k>", "<C-u>zz", { desc = "Maintain Cursor In Middle While Jumping Up", noremap = true })
 
 -- Remap the Redo Command
 vim.keymap.set("n", "U", vim.cmd.redo, { desc = "Redo" })
 
 -- Simplify Navigating Windows
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to Bottom Window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to Top Window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to Bottom Window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to Top Window" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to Left Window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to Right Window" })
 
