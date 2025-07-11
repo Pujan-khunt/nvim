@@ -26,7 +26,7 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste From Clipboard"
 -- Toggle Relative Line Numbering
 vim.keymap.set("n", "<leader>lr", function()
   vim.o.relativenumber = not vim.o.relativenumber
-end, { desc = "Toggle Relative Line Numbers" })
+end, { desc = "Toggle Relative Numbers" })
 
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left in visual mode" })

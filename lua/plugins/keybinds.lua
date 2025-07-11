@@ -39,9 +39,9 @@ return {
 
       clues = {
         -- Custom clues for custom keymaps
-        { mode = "n", keys = "<Leader>f", desc = "+Telescope" },
-        { mode = "n", keys = "<Leader>fc", desc = "+Config" },
-        { mode = "n", keys = "<Leader>l", desc = "+Utilities" },
+        { mode = "n", keys = "<Leader>f", desc = "Telescope" },
+        { mode = "n", keys = "<Leader>fc", desc = "Config" },
+        { mode = "n", keys = "<Leader>l", desc = "Utilities" },
 
         -- Preconfigured clues
         miniclue.gen_clues.builtin_completion(),

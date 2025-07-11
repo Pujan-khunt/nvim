@@ -42,24 +42,24 @@ return {
     local cwd = vim.fn.getcwd()
 
     -- Find files using grep in the cwd.
-    vim.keymap.set("n", "<leader>fg", function() builtin.live_grep({ cwd = cwd }) end, { desc = "Live Grep - Telescope" })
+    vim.keymap.set("n", "<leader>fg", function() builtin.live_grep({ cwd = cwd }) end, { desc = "Live Grep - CWD" })
 
     -- Find files in the cwd.
-    vim.keymap.set("n", "<leader>fd", function() builtin.find_files({ cwd = cwd, hidden = true }) end, { desc = "Find Files in CWD - Telescope" })
+    vim.keymap.set("n", "<leader>fd", function() builtin.find_files({ cwd = cwd, hidden = true }) end, { desc = "Find Files - CWD" })
 
     -- Find files in the neovim config dir.
-    vim.keymap.set("n", "<leader>fcd", function() builtin.find_files({ cwd = config_dir, hidden = true, no_ignore = false }) end, { desc = "Find Files in Config - Telescope" })
+    vim.keymap.set("n", "<leader>fcd", function() builtin.find_files({ cwd = config_dir, hidden = true, no_ignore = false }) end, { desc = "Find Files - Config" })
 
     -- Find files using grep in neovim config dir.
-    vim.keymap.set("n", "<leader>fcg", function() builtin.live_grep({ cwd = config_dir }) end, { desc = "Live Grep - Telescope" })
+    vim.keymap.set("n", "<leader>fcg", function() builtin.live_grep({ cwd = config_dir }) end, { desc = "Live Grep - Config" })
 
     -- Fuzzy search highlights
-    vim.keymap.set("n", "<leader>fl", builtin.highlights, { desc = "Fuzzy Search Highlights - Telescope" })
+    vim.keymap.set("n", "<leader>fl", builtin.highlights, { desc = "Fuzzy Search Highlights" })
 
     -- Fuzzy search help tags like telescope.builtins etc.
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Fuzzy Search Help Pages - Telescope" })
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Search Help Pages" })
 
     -- Resume to the previously opened telescope window with the same state(prompt)
-    vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume in Previous State - Telescope" })
+    vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume Previous State" })
   end,
 }
