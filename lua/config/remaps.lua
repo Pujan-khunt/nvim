@@ -5,10 +5,6 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open File Explorer" }
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Lines Up" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" })
 
--- Keep cursor in middle while jumping up and down with C-d and C-u
-vim.keymap.set("n", "<c-j>", "<C-d>zz", { desc = "Maintain Cursor In Middle While Jumping Down", noremap = true })
-vim.keymap.set("n", "<c-k>", "<C-u>zz", { desc = "Maintain Cursor In Middle While Jumping Up", noremap = true })
-
 -- Remap the Redo Command
 vim.keymap.set("n", "U", vim.cmd.redo, { desc = "Redo" })
 
