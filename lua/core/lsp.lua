@@ -3,8 +3,10 @@ vim.lsp.enable({
 })
 
 vim.diagnostic.config({
-    virtual_text = true,
+    -- virtual_text = true,
+    virtual_lines = true,
     underline = true,
+
     update_in_insert = false,
     severity_sort = true,
     float = {
@@ -26,7 +28,7 @@ vim.diagnostic.config({
 })
 
 
--- Extras
+-- Extra Utility Commands and Functions
 
 local function restart_lsp(bufnr)
     bufnr = bufnr or vim.api.nvim_get_current_buf()
@@ -41,9 +43,8 @@ local function restart_lsp(bufnr)
     end, 100)
 end
 
-vim.api.nvim_create_user_command('LspRestart', function()
-    restart_lsp()
-end, {})
+vim.api.nvim_create_user_command('LspRestart', restart_lsp, {})
+vim.keymap.set("n", "<leader>sr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
 
 local function lsp_status()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -54,8 +55,9 @@ local function lsp_status()
         return
     end
 
+    print("═══════════════════════════════════")
     print("󰒋 LSP Status for buffer " .. bufnr .. ":")
-    print("─────────────────────────────────")
+    print("═══════════════════════════════════")
 
     for i, client in ipairs(clients) do
         print(string.format("󰌘 Client %d: %s (ID: %d)", i, client.name, client.id))
@@ -79,6 +81,7 @@ local function lsp_status()
 end
 
 vim.api.nvim_create_user_command('LspStatus', lsp_status, { desc = "Show detailed LSP status" })
+vim.keymap.set("n", "<leader>ss", "<cmd>LspStatus<CR>", { desc = "LSP Status" })
 
 local function check_lsp_capabilities()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -123,6 +126,7 @@ local function check_lsp_capabilities()
 end
 
 vim.api.nvim_create_user_command('LspCapabilities', check_lsp_capabilities, { desc = "Show LSP capabilities" })
+vim.keymap.set("n", "<leader>sc", "<cmd>LspCapabilities<CR>", { desc = "LSP Capabilities" })
 
 local function lsp_diagnostics_info()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -144,7 +148,7 @@ local function lsp_diagnostics_info()
 end
 
 vim.api.nvim_create_user_command('LspDiagnostics', lsp_diagnostics_info, { desc = "Show LSP diagnostics count" })
-
+vim.keymap.set("n", "<leader>sd", "<cmd>LspDiagnostics<CR>", { desc = "LSP Diagnostics" })
 
 local function lsp_info()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -248,6 +252,7 @@ end
 
 -- Create command
 vim.api.nvim_create_user_command('LspInfo', lsp_info, { desc = "Show comprehensive LSP information" })
+vim.keymap.set("n", "<leader>si", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
 
 
 local function lsp_status_short()

@@ -3,7 +3,10 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open File Explorer" }
 
 -- Move Lines ( Cant live without this )
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Lines Up" })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" }) -- Remap the Redo Command
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" })
+
+
+-- Redo
 vim.keymap.set("n", "U", vim.cmd.redo, { desc = "Redo" })
 
 -- Simplify Navigating Windows
@@ -30,10 +33,16 @@ end, { desc = "Toggle Relative Numbers" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left in visual mode" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right in visual mode" })
 
+-- Resize windows 1x
+vim.keymap.set("n", "<leader>.", "<C-w>>", { desc = "Resize Window Left" })
+vim.keymap.set("n", "<leader>,", "<C-w><", { desc = "Resize Window Right" })
+
+-- Resize windows 3x
+vim.keymap.set("n", "<leader>.", "<C-w>><C-w>><C-w>>", { desc = "Resize Window Left" })
+vim.keymap.set("n", "<leader>,", "<C-w><<C-w><<C-w><", { desc = "Resize Window Right" })
+
 -- Close window
-vim.keymap.set("n", "<leader>q", function()
-  vim.cmd("q")
-end, { desc = "Close Current Window" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close Current Window" })
 
 -- Open Window for Lazy
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open Lazy Page" })
