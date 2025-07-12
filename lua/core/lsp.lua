@@ -25,7 +25,6 @@ vim.diagnostic.config({
   },
 })
 
-
 -- Extra Utility Commands and Functions
 
 local function restart_lsp(bufnr)
@@ -60,18 +59,23 @@ local function lsp_status()
     for i, client in ipairs(clients) do
         print(string.format("󰌘 Client %d: %s (ID: %d)", i, client.name, client.id))
         print("  Root: " .. (client.config.root_dir or "N/A"))
-        print("  Filetypes: " .. table.concat(client.config.filetypes or {}, ", "))
+        print("  Filetypes: " .. table.concat(client.config.capabilities or {}, ", "))
 
         -- Check capabilities
         local caps = client.server_capabilities
+        if caps == nil then
+          print("No Client Capabilities")
+          return
+        end
+
         local features = {}
-        if caps.completionProvider then table.insert(features, "completion") end
-        if caps.hoverProvider then table.insert(features, "hover") end
-        if caps.definitionProvider then table.insert(features, "definition") end
-        if caps.referencesProvider then table.insert(features, "references") end
-        if caps.renameProvider then table.insert(features, "rename") end
-        if caps.codeActionProvider then table.insert(features, "code_action") end
-        if caps.documentFormattingProvider then table.insert(features, "formatting") end
+        if  caps.completionProvider then table.insert(features, "completion") end
+        if  caps.hoverProvider then table.insert(features, "hover") end
+        if  caps.definitionProvider then table.insert(features, "definition") end
+        if  caps.referencesProvider then table.insert(features, "references") end
+        if  caps.renameProvider then table.insert(features, "rename") end
+        if  caps.codeActionProvider then table.insert(features, "code_action") end
+        if  caps.documentFormattingProvider then table.insert(features, "formatting") end
 
         print("  Features: " .. table.concat(features, ", "))
         print("")
@@ -93,6 +97,10 @@ local function check_lsp_capabilities()
     for _, client in ipairs(clients) do
         print("Capabilities for " .. client.name .. ":")
         local caps = client.server_capabilities
+        if caps == nil then
+          print("No Client Capabilities")
+          return
+        end
 
         local capability_list = {
             { "Completion",                caps.completionProvider },

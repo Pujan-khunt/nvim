@@ -13,7 +13,7 @@ vim.keymap.set("n", "U", vim.cmd.redo, { desc = "Redo" })
 -- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to Bottom Window" })
 -- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to Top Window" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to Left Window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to Right Window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to Right Window" })
 
 -- Source a config file
 vim.keymap.set("n", "<leader>ls", "<cmd>source %<CR>", { desc = "Source a file" })
