@@ -3,9 +3,7 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open File Explorer" }
 
 -- Move Lines ( Cant live without this )
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Lines Up" })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" })
-
--- Remap the Redo Command
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" }) -- Remap the Redo Command
 vim.keymap.set("n", "U", vim.cmd.redo, { desc = "Redo" })
 
 -- Simplify Navigating Windows
@@ -37,15 +35,9 @@ vim.keymap.set("n", "<leader>q", function()
   vim.cmd("q")
 end, { desc = "Close Current Window" })
 
+-- Open Window for Lazy
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open Lazy Page" })
 
--- Open Mason
--- vim.keymap.set("n", "<leader>lm", function()
---   vim.cmd("Mason")
--- end, { desc = "Open Mason" })
-
 -- Open LspInfo window
--- vim.keymap.set("n", "<leader>ll", function()
---   vim.cmd("LspInfo")
--- end, { desc = "Open LspInfo" })
+vim.keymap.set("n", "<leader>ll", "<cmd>LspInfo<CR>", { desc = "Open LspInfo" })
 
