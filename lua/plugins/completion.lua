@@ -12,6 +12,7 @@ return {
   },
   {
     "saghen/blink.cmp",
+    event = { "InsertEnter" },
     dependencies = {
       { "L3MON4D3/LuaSnip", version = "v2.*"},
     },
@@ -21,26 +22,66 @@ return {
     ---@type blink.cmp.Config
     opts = {
       snippets = {
-        preset = 'luasnip'
+        preset = "luasnip"
       },
       keymap = {
         preset = "default",
-        ["<C-l>"] = { "select_and_accept" },
-        ["<C-j>"] = { "select_next" },
-        ["<C-k>"] = { "select_prev" },
+        -- If completion window is not open then open it with the first entry preselected,
+        -- else select the corresponding entry
+        ["<C-j>"] = { "show", "select_next", 'fallback' },
+        ["<C-k>"] = { "show", "select_prev", 'fallback' },
+        -- Navigate Back and Forth for Snippets
+        ["<C-h>"] = { "snippet_backward", 'fallback' },
+        -- <C-l> is used to accept a entry in completion window when there is no snippet forwarding
+        ["<C-l>"] = { "snippet_forward", "select_and_accept", 'fallback' },
+        ["<C-Space>"] = { 'cancel', 'fallback' },
       },
       appearance = {
         use_nvim_cmp_as_default = false,
         nerd_font_variant = "normal",
       },
-
-      -- (Default) Only show the documentation popup when manually triggered
+      signature = { enabled = true },
       completion = {
+        keyword = { range = "full" },
+        ghost_text = { enabled = false },
         trigger = {
-          prefetch_on_insert = false,
+          show_in_snippet = false,
+          show_on_backspace = true,
+          -- (To view the documentation for the keyword)
+          show_on_keyword = true,
+          -- Automatically open completion window when a specific character like "."
+          -- is used. (To view properties and functions for a keyword. Ex. vim.api.|   <-- here as soon as I type the "." the window should appear)
+          show_on_trigger_character = true,
+          show_on_blocked_trigger_characters = { " ", "\n", "\t" },
+          --
+          show_on_insert_on_trigger_character = true,
+        },
+        accept = {
+          dot_repeat = true,
+          auto_brackets = {
+            enabled = true,
+            default_brackets = { "{", "}" },
+            kind_resolution = {
+              enabled = true,
+              blocked_filetypes = { 'typescriptreact', 'javascriptreact', 'vue' },
+            },
+            semantic_token_resolution = {
+              enabled = true,
+              blocked_filetypes = { 'java' },
+              -- How long to wait for semantic tokens to return before assuming no brackets should be added
+              timeout_ms = 400,
+            },
+          },
+        },
+        menu = {
+          enabled = true,
+          border = "single",
         },
         documentation = {
           auto_show = true,
+          window = {
+            border = 'rounded'
+          }
         }
       },
       -- Default list of enabled providers defined so that you can extend it
