@@ -14,23 +14,26 @@ return {
         '.git',
     },
     settings = {
-        Lua = {
-            diagnostics = {
-                disable = { "missing-fields" },
-                globals = {
-                    "vim",
-                    "Snacks",
-                },
-            },
-            hint = {
-                enable = true,
-                setType = false,
-                paramType = true,
-                paramName = "Disable",
-                semicolon = "Disable",
-                arrayIndex = "Disable",
-            },
+      Lua = {
+        diagnostics = {
+          enable = true,
+          globals = { "vim" },
         },
+        completion = {
+          callSnippet = "Both",
+        },
+        hint = {
+          enable = true,
+          setType = false,
+          paramType = true,
+          paramName = "Disable",
+          semicolon = "Disable",
+          arrayIndex = "Disable",
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
     },
     capabilities = vim.tbl_deep_extend(
         "force",
