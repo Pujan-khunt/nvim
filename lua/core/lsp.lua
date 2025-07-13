@@ -1,5 +1,6 @@
 vim.lsp.enable({
     "lua_ls",
+    "ts_ls",
 })
 
 vim.diagnostic.config({
@@ -8,7 +9,7 @@ vim.diagnostic.config({
     source = true,
   },
   underline = true,
-  virtual_lines = true,
+  virtual_text = true,
   update_in_insert = false,
   severity_sort = true,
   signs = {
