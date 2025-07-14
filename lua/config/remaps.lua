@@ -5,7 +5,6 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open File Explorer" }
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Lines Up" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Lines Down" })
 
-
 -- Redo
 vim.keymap.set("n", "U", vim.cmd.redo, { desc = "Redo" })
 
@@ -26,7 +25,7 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste From Clipboard"
 
 -- Toggle Relative Line Numbering
 vim.keymap.set("n", "<leader>lr", function()
-  vim.o.relativenumber = not vim.o.relativenumber
+	vim.o.relativenumber = not vim.o.relativenumber
 end, { desc = "Toggle Relative Numbers" })
 
 -- Stay in indent mode
@@ -50,3 +49,7 @@ vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open Lazy Page" })
 -- Open LspInfo window
 vim.keymap.set("n", "<leader>ll", "<cmd>LspInfo<CR>", { desc = "Open LspInfo" })
 
+-- Format Buffer using conform.nvim
+vim.keymap.set("n", "<leader>w", function()
+	require("conform").format({ bufnr = vim.api.nvim_get_current_buf() })
+end, { desc = "Format Buffer" })
