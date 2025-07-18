@@ -15,7 +15,7 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to Left Window" })
 -- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to Right Window" })
 
 -- Source a config file
-vim.keymap.set("n", "<leader>ls", "<cmd>source %<CR>", { desc = "Source a file" })
+vim.keymap.set({ "n", "v" }, "<leader>ls", "<cmd>source %<CR>", { desc = "Source a file" })
 
 -- Copy selected visual onto clipboard register(+)
 vim.keymap.set(
@@ -60,3 +60,15 @@ vim.keymap.set("n", "<leader>w", function()
 end, { desc = "Format Buffer" })
 
 vim.keymap.set("v", "<leader>d", '"+d', { desc = "Cut Into Clipboard" })
+
+-- Bufferline keymaps
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Close Current Buffer" })
+vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close All Buffers Except Current" })
+
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Switch to Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>", { desc = "Switch to Next Buffer" })
+
+vim.keymap.set("n", "]b", "<cmd>BufferLineMoveNext<CR>", { desc = "Move Buffer to Right" })
+vim.keymap.set("n", "[b", "<cmd>BufferLineMovePrev<CR>", { desc = "Move Buffer to Left" })
+
+vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<CR>", { desc = "Pick Buffer" })

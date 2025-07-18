@@ -7,6 +7,6 @@ return function(_, bufnr)
 	map("n", "gr", "<cmd>Telescope lsp_references<CR>", "References")
 	map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", "Implementations")
 	map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-	map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
+	map("n", "<leader>lr", vim.lsp.buf.rename, "Rename")
 	map("n", "K", vim.lsp.buf.hover, "Hover Doc")
 end

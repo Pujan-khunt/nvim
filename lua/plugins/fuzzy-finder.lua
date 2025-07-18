@@ -39,19 +39,21 @@ return {
 
 		local builtin = require("telescope.builtin")
 		local config_dir = "$HOME/.config/nvim/"
-		local cwd = vim.fn.getcwd()
+		local oil = require("oil")
 
 		-- Find files using grep in the cwd.
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep - CWD" })
+		vim.keymap.set("n", "<leader>fg", function()
+			builtin.live_grep({ cwd = oil.get_current_dir() })
+		end, { desc = "Live Grep - CWD" })
 
 		-- Find files in the cwd.
 		vim.keymap.set("n", "<leader>fd", function()
-			builtin.find_files({ cwd = cwd, hidden = true })
+			builtin.find_files({ cwd = oil.get_current_dir(), hidden = true })
 		end, { desc = "Find Files - CWD" })
 
 		-- Find files in the neovim config dir.
-		vim.keymap.set("n", "<leader>fcd", function()
-			builtin.find_files({ cwd = config_dir, hidden = true, no_ignore = false })
+		vim.keymap.set("n", "<leader>fcf", function()
+			builtin.find_files({ cwd = config_dir, hidden = true })
 		end, { desc = "Find Files - Config" })
 
 		-- Find files using grep in neovim config dir.

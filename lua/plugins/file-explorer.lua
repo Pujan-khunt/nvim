@@ -12,14 +12,19 @@ return {
 			"icon",
 		},
 		delete_to_trash = true,
-		skip_confirm_for_simple_edits = false,
 		prompt_save_on_select_new_entry = true,
 		watch_for_changes = true, -- Watches for filesystem changes and updates
+		use_default_keymaps = false,
 		keymaps = {
 			["l"] = { "actions.select", mode = "n" }, -- Enter the node
 			["h"] = { "actions.parent", mode = "n" }, -- Go one directory up
 			["<C-h>"] = {}, -- Disable the normal functioning of <C-h>. <C-h> is used for transitioning to the left window in neovim.
+			["<C-l>"] = {},
+			["g."] = { "actions.toggle_hidden", mode = "n" },
 			["<C-M-m>"] = "actions.preview",
+		},
+		view_options = {
+			show_hidden = true,
 		},
 	},
 }
