@@ -18,3 +18,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+
+-- Detect "i3config" filetypes
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*/i3/**/*.conf",
+	callback = function()
+		vim.bo.filetype = "i3config"
+	end,
+})

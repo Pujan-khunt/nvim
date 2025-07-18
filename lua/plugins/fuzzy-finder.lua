@@ -12,8 +12,8 @@ return {
 			initial_mode = "insert",
 			hidden = true,
 			file_ignore_patterns = {
-				"^%.git",
-				"^node_modules/%",
+				".git",
+				"node_modules",
 			},
 			mappings = {
 				i = {
@@ -42,9 +42,7 @@ return {
 		local cwd = vim.fn.getcwd()
 
 		-- Find files using grep in the cwd.
-		vim.keymap.set("n", "<leader>fg", function()
-			builtin.live_grep({ cwd = cwd })
-		end, { desc = "Live Grep - CWD" })
+		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep - CWD" })
 
 		-- Find files in the cwd.
 		vim.keymap.set("n", "<leader>fd", function()

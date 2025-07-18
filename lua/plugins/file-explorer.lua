@@ -2,7 +2,9 @@ return {
 	"stevearc/oil.nvim",
 	---@module 'oil'
 	---@type oil.SetupOpts
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
+	dependencies = {
+		{ "echasnovski/mini.icons", opts = {} },
+	},
 	lazy = false,
 	opts = {
 		default_file_explorer = true, -- Hijack Netrw

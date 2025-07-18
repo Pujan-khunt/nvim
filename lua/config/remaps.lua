@@ -18,7 +18,12 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to Left Window" })
 vim.keymap.set("n", "<leader>ls", "<cmd>source %<CR>", { desc = "Source a file" })
 
 -- Copy selected visual onto clipboard register(+)
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "Copy Visual Onto Clipboard" })
+vim.keymap.set(
+	"v",
+	"<leader>y",
+	":w !xclip -selection clipboard<CR>",
+	{ desc = "Copy Visual Onto Clipboard", silent = true }
+)
 
 -- Paste from clipboard register(+)
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste From Clipboard" })
@@ -53,3 +58,5 @@ vim.keymap.set("n", "<leader>ll", "<cmd>LspInfo<CR>", { desc = "Open LspInfo" })
 vim.keymap.set("n", "<leader>w", function()
 	require("conform").format({ bufnr = vim.api.nvim_get_current_buf() })
 end, { desc = "Format Buffer" })
+
+vim.keymap.set("v", "<leader>d", '"+d', { desc = "Cut Into Clipboard" })
