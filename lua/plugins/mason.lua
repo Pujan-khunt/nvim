@@ -6,9 +6,17 @@ return {
 		keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
 		build = ":MasonUpdate",
 		opts = {
+			-- NOTE: Names should match package names in "Mason" not the binary names.
 			ensure_installed = {
 				-- LSP servers (matching your vim.lsp.enable() config)
 				"lua-language-server", -- Lua LSP
+				"jdtls", -- Java LSP
+				"typescript-language-server", -- JavaScript/TypeScript LSP
+
+				-- Formatters/Linters
+				"biome", -- JS/TS
+				"stylua", -- Lua
+				"google-java-format", -- Java
 			},
 		},
 		config = function(_, opts)

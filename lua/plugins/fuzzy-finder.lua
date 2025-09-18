@@ -19,6 +19,7 @@ return {
 				i = {
 					["<c-k>"] = "move_selection_previous",
 					["<c-j>"] = "move_selection_next",
+					["<c-l>"] = "select_default",
 				},
 			},
 		},
