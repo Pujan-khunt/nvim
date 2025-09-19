@@ -31,7 +31,11 @@ return {
 				"-Dlog.protocol=true",
 				"-Dlog.level=ALL",
 				"-Xms1g",
+
+				-- Java 25 features
+				"--enable-preview",
 				"--add-modules=ALL-SYSTEM",
+
 				"--add-opens",
 				"java.base/java.util=ALL-UNNAMED",
 				"--add-opens",

@@ -1,7 +1,12 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
+	-- telescope-ui-select extension requires a global variable to set before the plugin is loaded.
+	-- init() runs before the plugin is loaded.
+	init = function()
+		vim.g.telescope_ui_select_replace = true
+	end,
 	opts = {
 		defaults = {
 			scroll_strategy = "limit", -- Limit if tried to scroll past the start or end of the list
@@ -30,6 +35,11 @@ return {
 				override_file_sorter = true,
 				case_mode = "smart_case",
 			},
+			["ui-select"] = {
+				require("telescope.themes").get_dropdown({
+					previewer = false,
+				}),
+			},
 		},
 		pickers = {},
 	},
@@ -37,6 +47,9 @@ return {
 	config = function(_, opts)
 		local telescope = require("telescope")
 		telescope.setup(opts)
+
+		telescope.load_extension("fzf")
+		telescope.load_extension("ui-select")
 
 		local builtin = require("telescope.builtin")
 		local config_dir = "$HOME/.config/nvim/"
