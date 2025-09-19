@@ -4,7 +4,6 @@ return {
 		lazy = false, -- Load immediately to ensure PATH is set
 		cmd = "Mason",
 		keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
-		build = ":MasonUpdate",
 		opts = {
 			-- NOTE: Names should match package names in "Mason" not the binary names.
 			ensure_installed = {

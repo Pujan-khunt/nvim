@@ -53,3 +53,8 @@ vim.keymap.set("n", "<leader>ll", "<cmd>LspInfo<CR>", { desc = "Open LspInfo" })
 vim.keymap.set("n", "<leader>w", function()
 	require("conform").format({ bufnr = vim.api.nvim_get_current_buf() })
 end, { desc = "Format Buffer" })
+
+-- Keymap to toggle lazygit
+vim.keymap.set("n", "<leader>lg", function()
+	require("snacks").lazygit()
+end, { desc = "Toggle [L]azy[g]it" })
