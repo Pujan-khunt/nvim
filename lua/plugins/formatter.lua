@@ -5,7 +5,7 @@ return {
 			lua = { "stylua" },
 			javascript = { "biome" },
 			typescript = { "biome" },
-			java = { "google-java-format" },
+			-- java = { "google-java-format" },
 		},
 	},
 }

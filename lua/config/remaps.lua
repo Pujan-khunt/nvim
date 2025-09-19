@@ -58,3 +58,17 @@ end, { desc = "Format Buffer" })
 vim.keymap.set("n", "<leader>lg", function()
 	require("snacks").lazygit()
 end, { desc = "Toggle [L]azy[g]it" })
+
+-- Format buffer using lsp
+vim.keymap.set("n", "<leader>lf", function()
+	vim.lsp.buf.format({
+		async = true,
+		formatting_options = {
+			tabSize = 4,
+			insertSpaces = false,
+			trimTrailingWhitespace = true,
+			insertFinalNewline = true,
+			trimFinalNewlines = true,
+		},
+	})
+end, { desc = "Format Buffer" })
