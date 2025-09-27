@@ -1,7 +1,11 @@
 vim.lsp.enable({
+	"clangd",
 	"lua_ls",
 	"ts_ls",
 	"jdtls",
+	"vscode-json-language-server",
+	"html-lsp",
+	"tailwindcss-language-server",
 })
 
 vim.diagnostic.config({

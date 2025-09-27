@@ -5,7 +5,11 @@ return {
 			lua = { "stylua" },
 			javascript = { "biome" },
 			typescript = { "biome" },
-			-- java = { "google-java-format" },
+			javascriptreact = { "biome" },
+			typescriptreact = { "biome" },
+			json = { "biome" },
+			jsonc = { "biome" },
+			java = { "google-java-format" },
 		},
 	},
 }

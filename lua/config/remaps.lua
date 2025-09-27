@@ -61,6 +61,17 @@ end, { desc = "Toggle [L]azy[g]it" })
 
 -- Format buffer using lsp
 vim.keymap.set("n", "<leader>lf", function()
+	-- require("conform").format({
+	-- 	async = true,
+	-- 	bufnr = 0,
+	-- 	formatting_options = {
+	-- 		tabSize = 4,
+	-- 		insertSpaces = false,
+	-- 		trimTrailingWhitespace = true,
+	-- 		insertFinalNewline = true,
+	-- 		trimFinalNewlines = true,
+	-- 	},
+	-- })
 	vim.lsp.buf.format({
 		async = true,
 		formatting_options = {

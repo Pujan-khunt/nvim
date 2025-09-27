@@ -9,7 +9,7 @@ return {
 			ensure_installed = {
 				-- LSP servers (matching your vim.lsp.enable() config)
 				"lua-language-server", -- Lua LSP
-				"jdtls", -- Java LSP
+				-- "jdtls", -- Java LSP
 				"typescript-language-server", -- JavaScript/TypeScript LSP
 
 				-- Formatters/Linters

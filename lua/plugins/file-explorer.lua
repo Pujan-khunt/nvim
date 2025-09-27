@@ -8,6 +8,7 @@ return {
 		default_file_explorer = true, -- Hijack Netrw
 		columns = {
 			"icon",
+			"lsp",
 		},
 		delete_to_trash = true,
 		skip_confirm_for_simple_edits = false,
@@ -18,6 +19,10 @@ return {
 			["h"] = { "actions.parent", mode = "n" }, -- Go one directory up
 			["<C-h>"] = {}, -- Disable the normal functioning of <C-h>. <C-h> is used for transitioning to the left window in neovim.
 			["<C-M-m>"] = "actions.preview",
+		},
+		lsp_file_methods = {
+			enabled = true,
+			timeout_ms = 1000,
 		},
 	},
 }

@@ -15,7 +15,6 @@ return {
 	root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 	settings = {
 		typescript = {
-			-- Remove tsdk setting to allow auto-detection
 			tsserver = {
 				useSyntaxServer = false,
 			},
@@ -31,7 +30,27 @@ return {
 			},
 		},
 		javascript = {
-			-- Remove tsdk setting to allow auto-detection
+			autoClosingTags = true,
+			preferGoToSourceDefinition = true,
+			referencesCodeLens = {
+				enabled = true,
+				showOnAllFunctions = true,
+			},
+			suggestionActions = {
+				enabled = true,
+			},
+			updateImportsOnFileMove = {
+				enabled = true,
+			},
+			updateImportsOnPaste = {
+				enabled = true,
+			},
+			validate = {
+				enabled = true,
+			},
+			hover = {
+				maximumLength = 500,
+			},
 		},
 	},
 	capabilities = vim.tbl_deep_extend(
