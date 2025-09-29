@@ -33,8 +33,7 @@ return {
 				-- Navigate Back and Forth for Snippets
 				["<C-h>"] = { "snippet_backward", "fallback" },
 				-- <C-l> is used to accept a entry in completion window when there is no snippet forwarding
-				["<C-l>"] = { "snippet_forward", "select_and_accept", "fallback" },
-				["<C-Space>"] = { "cancel", "fallback" },
+				["<C-l>"] = { "select_and_accept" },
 			},
 			appearance = {
 				use_nvim_cmp_as_default = false,

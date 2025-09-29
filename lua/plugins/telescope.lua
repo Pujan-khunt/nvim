@@ -9,7 +9,7 @@ return {
 	end,
 	opts = {
 		defaults = {
-			scroll_strategy = "limit", -- Limit if tried to scroll past the start or end of the list
+			scroll_strategy = "cycle", -- Limit if tried to scroll past the start or end of the list
 			sorting_strategy = "ascending",
 			layout_strategy = "horizontal",
 			prompt_prefix = "Files > ",
@@ -18,10 +18,16 @@ return {
 			hidden = true,
 			file_ignore_patterns = {
 				"^%.git",
+				"^.env",
 				"^node_modules/%",
 			},
 			mappings = {
 				i = {
+					["<c-k>"] = "move_selection_previous",
+					["<c-j>"] = "move_selection_next",
+					["<c-l>"] = "select_default",
+				},
+				n = {
 					["<c-k>"] = "move_selection_previous",
 					["<c-j>"] = "move_selection_next",
 					["<c-l>"] = "select_default",
@@ -53,16 +59,15 @@ return {
 
 		local builtin = require("telescope.builtin")
 		local config_dir = "$HOME/.config/nvim/"
-		local cwd = vim.fn.getcwd()
 
 		-- Find files using grep in the cwd.
 		vim.keymap.set("n", "<leader>fg", function()
-			builtin.live_grep({ cwd = cwd })
+			builtin.live_grep({ cwd = vim.fn.getcwd() })
 		end, { desc = "Live Grep - CWD" })
 
 		-- Find files in the cwd.
 		vim.keymap.set("n", "<leader>fd", function()
-			builtin.find_files({ cwd = cwd, hidden = true })
+			builtin.find_files({ cwd = vim.fn.getcwd(), hidden = true })
 		end, { desc = "Find Files - CWD" })
 
 		-- Find files in the neovim config dir.
