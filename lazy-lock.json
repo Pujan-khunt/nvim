@@ -1,7 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
-  "conform.nvim": { "branch": "master", "commit": "016bc8174a675e1dbf884b06a165cd0c6c03f9af" },
+  "conform.nvim": { "branch": "master", "commit": "c64cc754ace603e185ab30113aaef174187eacf8" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazydev.nvim": { "branch": "main", "commit": "258d2a5ef4a3e3d6d9ba9da72c9725c53e9afcbd" },
@@ -10,7 +10,6 @@
   "mini.icons": { "branch": "main", "commit": "e8fae66cb400744daeedf6e387347df50271c252" },
   "neoscroll.nvim": { "branch": "master", "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c" },
   "nvim-autopairs": { "branch": "master", "commit": "23320e75953ac82e559c610bec5a90d9c6dfa743" },
-  "nvim-jdtls": { "branch": "master", "commit": "b69924ca90014fef485ee153571bdcbc1ece8c2e" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "oil-lsp-diagnostics.nvim": { "branch": "master", "commit": "e04e3c387262b958fee75382f8ff66eae9d037f4" },
   "oil.nvim": { "branch": "master", "commit": "919e155fdf38e9148cdb5304faaaf53c20d703ea" },

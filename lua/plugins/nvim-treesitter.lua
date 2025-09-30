@@ -11,6 +11,8 @@ return {
 			"lua",
 			"python",
 			"bash",
+			"go",
+			"json",
 		},
 		highlight = {
 			enable = true,

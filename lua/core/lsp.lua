@@ -3,6 +3,7 @@ vim.lsp.enable({
 	"lua_ls",
 	"ts_ls",
 	"jdtls",
+	"gopls",
 	"vscode-json-language-server",
 	"html-lsp",
 	"tailwindcss-language-server",

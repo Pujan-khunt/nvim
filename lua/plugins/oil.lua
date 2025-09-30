@@ -26,8 +26,11 @@ return {
 				callback = function()
 					local oil = require("oil")
 					local childPath = oil.get_current_dir() .. oil.get_cursor_entry().name
+					local stat = vim.loop.fs_stat(childPath)
+					if stat.type == "directory" then
+						vim.cmd("cd " .. childPath)
+					end
 					oil.open(childPath)
-					vim.cmd("cd " .. childPath)
 				end,
 			},
 			["h"] = {
