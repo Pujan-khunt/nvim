@@ -4,6 +4,7 @@ vim.lsp.enable({
 	"ts_ls",
 	"jdtls",
 	"gopls",
+	"sqlls",
 	"vscode-json-language-server",
 	"html-lsp",
 	"tailwindcss-language-server",

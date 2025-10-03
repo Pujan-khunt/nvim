@@ -60,6 +60,16 @@ return {
 		local builtin = require("telescope.builtin")
 		local config_dir = "$HOME/.config/nvim/"
 
+		local cwd_on_open = vim.fn.getcwd()
+		vim.keymap.set("n", "<leader>ff", function()
+			builtin.find_files({ cwd = cwd_on_open, hidden = true })
+		end)
+
+		local golang_standard_library = "/usr/lib/go/pkg"
+		vim.keymap.set("n", "<leader>flg", function()
+			builtin.find_files({ cwd = golang_standard_library, hidden = false })
+		end)
+
 		-- Find files using grep in the cwd.
 		vim.keymap.set("n", "<leader>fg", function()
 			builtin.live_grep({ cwd = vim.fn.getcwd() })

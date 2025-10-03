@@ -12,9 +12,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Format on save using conform.nvim
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = "*",
+-- 	callback = function(args)
+-- 		-- require("conform").format({ bufnr = args.buf })
+-- 		vim.lsp.buf.format({
+-- 			bufnr = args.buf,
+-- 			async = true,
+-- 			formatting_options = {
+-- 				tabSize = 4,
+-- 				insertSpaces = false,
+-- 				trimTrailingWhitespace = true,
+-- 				insertFinalNewline = true,
+-- 				trimFinalNewlines = true,
+-- 			},
+-- 		})
+-- 	end,
+-- })

@@ -11,6 +11,7 @@ return {
 			jsonc = { "biome" },
 			java = { "google-java-format" },
 			go = { "gofumpt" },
+			-- sql = { "sleek" },
 		},
 		format_on_save = {
 			timeout_ms = 500,
