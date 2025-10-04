@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>.", "<C-w>><C-w>><C-w>>", { desc = "Resize Window L
 vim.keymap.set("n", "<leader>,", "<C-w><<C-w><<C-w><", { desc = "Resize Window Right" })
 
 -- Close window
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close Current Window" })
+vim.keymap.set("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Close Current Window" })
 
 -- Open Window for Lazy
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open Lazy Page" })
