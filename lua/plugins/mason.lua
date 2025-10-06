@@ -16,6 +16,11 @@ return {
 				"biome", -- JS/TS
 				"stylua", -- Lua
 				"google-java-format", -- Java
+
+				-- Golang
+				"gofumpt",
+				"goimports",
+				"golangci-lint",
 			},
 		},
 		config = function(_, opts)

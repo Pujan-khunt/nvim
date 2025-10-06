@@ -26,11 +26,13 @@ return {
 					["<c-k>"] = "move_selection_previous",
 					["<c-j>"] = "move_selection_next",
 					["<c-l>"] = "select_default",
+					["<c-v"] = "file_vsplit",
 				},
 				n = {
 					["<c-k>"] = "move_selection_previous",
 					["<c-j>"] = "move_selection_next",
 					["<c-l>"] = "select_default",
+					["<c-v"] = "file_vsplit",
 				},
 			},
 		},
@@ -65,7 +67,7 @@ return {
 			builtin.find_files({ cwd = cwd_on_open, hidden = true })
 		end)
 
-		local golang_standard_library = "/usr/lib/go/pkg"
+		local golang_standard_library = "/usr/lib/go/src"
 		vim.keymap.set("n", "<leader>flg", function()
 			builtin.find_files({ cwd = golang_standard_library, hidden = false })
 		end)
