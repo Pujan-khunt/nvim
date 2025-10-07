@@ -40,8 +40,14 @@ vim.keymap.set("n", "<leader>,", "<C-w><", { desc = "Resize Window Right" })
 vim.keymap.set("n", "<leader>.", "<C-w>><C-w>><C-w>>", { desc = "Resize Window Left" })
 vim.keymap.set("n", "<leader>,", "<C-w><<C-w><<C-w><", { desc = "Resize Window Right" })
 
+-- Close nvim
+vim.keymap.set({ "n", "v" }, "<C-q>", "<cmd>qa!<CR>", { desc = "Close NeoVim" })
+
 -- Close window
-vim.keymap.set("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Close Current Window" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close Current Window" })
+
+-- Open Diff View using diffview.nvim
+vim.keymap.set("n", "<leader>ld", "<cmd>DiffviewOpen<CR>", { desc = "Open Git Diff View" })
 
 -- Open Window for Lazy
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Open Lazy Page" })

@@ -4,10 +4,8 @@ vim.lsp.enable({
 	"ts_ls",
 	"jdtls",
 	"gopls",
-	"sqlls",
-	"vscode-json-language-server",
-	"html-lsp",
-	"tailwindcss-language-server",
+	-- "sqlls",
+	"gh_actions_ls",
 })
 
 vim.diagnostic.config({
