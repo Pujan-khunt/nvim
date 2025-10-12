@@ -26,6 +26,7 @@ return {
 				"clangd",
 				"gh-actions-language-server",
 				"jtdls",
+				"docker-language-server",
 			},
 		},
 		config = function(_, opts)
