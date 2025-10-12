@@ -89,3 +89,9 @@ vim.keymap.set("n", "<leader>lf", function()
 		},
 	})
 end, { desc = "Format Buffer" })
+
+vim.keymap.set("n", "<esc><esc>", "<c-\\><c-n>", { desc = "Normal from Terminal Mode" })
+
+vim.keymap.set("n", "<leader>tn", "<cmd>TermNew<CR>", { desc = "Open New ToggleTerm " })
+vim.keymap.set("n", "<leader>tt", "<cmd>TermSelect<CR>", { desc = "Select ToggleTerm " })
+vim.keymap.set("n", "<leader>tr", "<cmd>ToggleTermSetName<CR>", { desc = "Set Terminal Name" })

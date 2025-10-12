@@ -21,6 +21,11 @@ return {
 				"gofumpt",
 				"goimports",
 				"golangci-lint",
+				"gopls",
+
+				"clangd",
+				"gh-actions-language-server",
+				"jtdls",
 			},
 		},
 		config = function(_, opts)
