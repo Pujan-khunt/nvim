@@ -2,12 +2,16 @@ vim.lsp.enable({
 	"clangd",
 	"lua_ls",
 	"ts_ls",
-	"jdtls",
+	-- "jdtls",
 	"gopls",
 	-- "sqlls",
 	"json_ls",
 	"gh_actions_ls",
+<<<<<<< HEAD
 	-- "yaml_ls",
+=======
+	"docker_ls",
+>>>>>>> origin/main
 })
 
 vim.diagnostic.config({
