@@ -5,7 +5,9 @@ vim.lsp.enable({
 	"jdtls",
 	"gopls",
 	-- "sqlls",
+	"json_ls",
 	"gh_actions_ls",
+	-- "yaml_ls",
 })
 
 vim.diagnostic.config({

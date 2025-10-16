@@ -64,11 +64,20 @@ return {
 
 		local cwd_on_open = vim.fn.getcwd()
 		vim.keymap.set("n", "<leader>ff", function()
-			builtin.find_files({ cwd = cwd_on_open, hidden = true })
+			builtin.find_files({
+				cwd = cwd_on_open,
+				find_command = {
+					"rg",
+					"--files",
+					"--hidden",
+					"-g",
+					"!.git",
+				},
+			})
 		end)
 
 		vim.keymap.set("n", "<leader>fm", function()
-			builtin.live_grep({ cwd = cwd_on_open })
+			builtin.live_grep({ cwd = cwd_on_open, hidden = true })
 		end)
 
 		local golang_standard_library = "/usr/lib/go/src"
@@ -78,7 +87,7 @@ return {
 
 		-- Find files using grep in the cwd.
 		vim.keymap.set("n", "<leader>fg", function()
-			builtin.live_grep({ cwd = vim.fn.getcwd() })
+			builtin.live_grep({ cwd = vim.fn.getcwd(), hidden = true })
 		end, { desc = "Live Grep - CWD" })
 
 		-- Find files in the cwd.

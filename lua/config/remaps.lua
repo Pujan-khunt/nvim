@@ -61,9 +61,12 @@ vim.keymap.set("n", "<leader>w", function()
 end, { desc = "Format Buffer" })
 
 -- Keymap to toggle lazygit
-vim.keymap.set("n", "<leader>lg", function()
-	require("snacks").lazygit()
-end, { desc = "Toggle [L]azy[g]it" })
+-- vim.keymap.set("n", "<leader>lg", function()
+-- 	require("snacks").lazygit()
+-- end, { desc = "Toggle [L]azy[g]it" })
+
+vim.keymap.set("n", "<leader>lg", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View Git" })
+vim.keymap.set("n", "<leader>ld", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View Git" })
 
 -- Format buffer using lsp
 vim.keymap.set("n", "<leader>lf", function()
@@ -89,3 +92,8 @@ vim.keymap.set("n", "<leader>lf", function()
 		},
 	})
 end, { desc = "Format Buffer" })
+
+vim.keymap.set("n", "[t", "<cmd>tabprev<CR>", { desc = "Move to Previous Tab" })
+vim.keymap.set("n", "]t", "<cmd>tabnext<CR>", { desc = "Move to Next Tab" })
+vim.keymap.set("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close Current Tab" })
+vim.keymap.set("n", "<leader>lf", "<cmd>Flog<CR>", { desc = "Open Flog Git Tree" })
