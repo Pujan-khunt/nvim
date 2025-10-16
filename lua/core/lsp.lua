@@ -7,11 +7,8 @@ vim.lsp.enable({
 	-- "sqlls",
 	"json_ls",
 	"gh_actions_ls",
-<<<<<<< HEAD
 	-- "yaml_ls",
-=======
 	"docker_ls",
->>>>>>> origin/main
 })
 
 vim.diagnostic.config({
