@@ -68,31 +68,6 @@ end, { desc = "Format Buffer" })
 vim.keymap.set("n", "<leader>lg", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View Git" })
 vim.keymap.set("n", "<leader>ld", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View Git" })
 
--- Format buffer using lsp
-vim.keymap.set("n", "<leader>lf", function()
-	-- require("conform").format({
-	-- 	async = true,
-	-- 	bufnr = 0,
-	-- 	formatting_options = {
-	-- 		tabSize = 4,
-	-- 		insertSpaces = false,
-	-- 		trimTrailingWhitespace = true,
-	-- 		insertFinalNewline = true,
-	-- 		trimFinalNewlines = true,
-	-- 	},
-	-- })
-	vim.lsp.buf.format({
-		async = true,
-		formatting_options = {
-			tabSize = 4,
-			insertSpaces = false,
-			trimTrailingWhitespace = true,
-			insertFinalNewline = true,
-			trimFinalNewlines = true,
-		},
-	})
-end, { desc = "Format Buffer" })
-
 vim.keymap.set("n", "[t", "<cmd>tabprev<CR>", { desc = "Move to Previous Tab" })
 vim.keymap.set("n", "]t", "<cmd>tabnext<CR>", { desc = "Move to Next Tab" })
 vim.keymap.set("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close Current Tab" })

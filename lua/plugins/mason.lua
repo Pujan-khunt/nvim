@@ -25,7 +25,7 @@ return {
 
 				"clangd",
 				"gh-actions-language-server",
-				"jtdls",
+				"jdtls",
 				"docker-language-server",
 			},
 		},

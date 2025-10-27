@@ -7,7 +7,7 @@ return {
 
 	cmd = { "docker-language-server", "start", "--stdio" },
 
-	filetypes = { "dockerfile", "yaml", "dockerbake", "hcl" },
+	filetypes = { "dockerfile", "dockerbake", "hcl" },
 
 	root_markers = { "Dockerfile", "docker-compose.yml", "docker-compose.yaml", "bake.hcl", ".git" },
 
