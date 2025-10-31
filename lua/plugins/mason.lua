@@ -11,6 +11,7 @@ return {
 				"lua-language-server", -- Lua LSP
 				-- "jdtls", -- Java LSP
 				"typescript-language-server", -- JavaScript/TypeScript LSP
+				"html-lsp",
 
 				-- Formatters/Linters
 				"biome", -- JS/TS

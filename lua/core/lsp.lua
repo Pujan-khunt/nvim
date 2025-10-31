@@ -9,6 +9,7 @@ vim.lsp.enable({
 	"gh_actions_ls",
 	-- "yaml_ls",
 	"docker_ls",
+	"html_ls",
 })
 
 vim.diagnostic.config({

@@ -11,9 +11,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Prevent overflow when diffing files using DiffView
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown", "text", "gitcommit", "gitrebase" },
 	callback = function()
 		vim.opt_local.wrap = true
+	end,
+})
+
+-- Comment settings for JavaScript/TypeScript (no plugins)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "javascriptreact", "typescriptreact" },
+	callback = function()
+		vim.bo.commentstring = "{/* %s */}"
 	end,
 })

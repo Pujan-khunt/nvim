@@ -15,8 +15,30 @@ return {
 	root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 	settings = {
 		typescript = {
+			autoClosingTags = true,
+			enablePromptUseWorkspaceTsdk = true,
+			implementationsCodeLens = {
+				enabled = true,
+				showOnAllFunctions = true,
+				showOnInterfaceMethods = true,
+			},
+			preferGoToSourceDefinition = true,
+			referencesCodeLens = {
+				enabled = true,
+				showOnAllFunctions = true,
+			},
+			reportStyleCheckAsWarnings = true,
+			suggestionActions = { enabled = true },
+			tsc = { autoDetect = true },
+			preferences = {
+				organizeImports = true,
+				renameMatchingJsxTags = true,
+				importModuleSpecifier = "relative",
+				quoteStyle = "double",
+				jsxAttributeCompletionStyle = "auto",
+			},
 			tsserver = {
-				useSyntaxServer = false,
+				useSyntaxServer = "auto",
 			},
 			inlayHints = {
 				includeInlayParameterNameHints = "all",
@@ -25,8 +47,13 @@ return {
 				includeInlayVariableTypeHints = true,
 				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
 				includeInlayPropertyDeclarationTypeHints = true,
+				parameterNames = { enabled = true },
+				parameterTypes = { enabled = true },
 				includeInlayFunctionLikeReturnTypeHints = true,
 				includeInlayEnumMemberValueHints = true,
+			},
+			format = {
+				enable = false,
 			},
 		},
 		javascript = {

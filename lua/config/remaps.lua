@@ -66,11 +66,10 @@ end, { desc = "Format Buffer" })
 -- end, { desc = "Toggle [L]azy[g]it" })
 
 vim.keymap.set("n", "<leader>lg", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View Git" })
-vim.keymap.set("n", "<leader>ld", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View Git" })
+vim.keymap.set("n", "<leader>ld", "<cmd>tabclose<CR>", { desc = "Close Diff View Git" })
 
 vim.keymap.set("n", "[t", "<cmd>tabprev<CR>", { desc = "Move to Previous Tab" })
 vim.keymap.set("n", "]t", "<cmd>tabnext<CR>", { desc = "Move to Next Tab" })
-vim.keymap.set("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close Current Tab" })
 vim.keymap.set("n", "<leader>lf", "<cmd>Flog<CR>", { desc = "Open Flog Git Tree" })
 vim.keymap.set("t", "<Esc><Esc", "<c-\\><c-n>", { noremap = true, silent = true, desc = "Normal from Terminal Mode" })
 vim.keymap.set("n", "<leader>tn", "<cmd>TermNew<CR>", { desc = "Open New ToggleTerm " })

@@ -3,8 +3,10 @@ return {
 	lazy = false,
 	opts = {
 		ensure_installed = {
+			"html",
 			"javascript",
 			"typescript",
+			"tsx",
 			"c",
 			"cpp",
 			"java",

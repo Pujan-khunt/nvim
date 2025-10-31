@@ -42,7 +42,7 @@ return {
 			signature = { enabled = true },
 			completion = {
 				keyword = { range = "full" },
-				ghost_text = { enabled = false },
+				ghost_text = { enabled = true },
 				trigger = {
 					show_in_snippet = false,
 					show_on_backspace = true,
@@ -52,7 +52,6 @@ return {
 					-- is used. (To view properties and functions for a keyword. Ex. vim.api.|   <-- here as soon as I type the "." the window should appear)
 					show_on_trigger_character = true,
 					show_on_blocked_trigger_characters = { " ", "\n", "\t" },
-					--
 					show_on_insert_on_trigger_character = true,
 				},
 				accept = {
@@ -62,7 +61,7 @@ return {
 						default_brackets = { "(", ")" },
 						kind_resolution = {
 							enabled = true,
-							blocked_filetypes = { "typescriptreact", "javascriptreact", "vue" },
+							-- blocked_filetypes = { "typescriptreact", "javascriptreact", "vue" },
 						},
 						semantic_token_resolution = {
 							enabled = true,
@@ -74,7 +73,7 @@ return {
 				},
 				menu = {
 					enabled = true,
-					border = "single",
+					border = "double",
 				},
 				documentation = {
 					auto_show = true,
