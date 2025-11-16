@@ -6,8 +6,8 @@ vim.lsp.enable({
 	"gopls",
 	-- "sqlls",
 	"json_ls",
-	"gh_actions_ls",
-	-- "yaml_ls",
+	-- "gh_actions_ls",
+	"yaml_ls",
 	"docker_ls",
 	"html_ls",
 })

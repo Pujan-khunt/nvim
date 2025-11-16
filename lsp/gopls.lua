@@ -18,6 +18,10 @@ return {
 
 			codelenses = {
 				generate = true,
+				regenerate_cgo = true,
+				run_govulncheck = true,
+				upgrade_dependency = true,
+				vendor = true,
 				gc_details = true,
 				test = true,
 				tidy = true,

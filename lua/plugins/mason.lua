@@ -28,6 +28,7 @@ return {
 				"gh-actions-language-server",
 				"jdtls",
 				"docker-language-server",
+				"yaml-language-server",
 			},
 		},
 		config = function(_, opts)
