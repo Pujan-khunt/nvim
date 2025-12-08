@@ -64,16 +64,7 @@ return {
 
 		local cwd_on_open = vim.fn.getcwd()
 		vim.keymap.set("n", "<leader>ff", function()
-			builtin.find_files({
-				cwd = cwd_on_open,
-				find_command = {
-					"rg",
-					"--files",
-					"--hidden",
-					"-g",
-					"!.git",
-				},
-			})
+			builtin.find_files({ cwd = cwd_on_open, hidden = true })
 		end)
 
 		vim.keymap.set("n", "<leader>fm", function()

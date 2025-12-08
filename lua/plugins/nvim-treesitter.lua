@@ -3,9 +3,11 @@ return {
 	lazy = false,
 	opts = {
 		ensure_installed = {
+			"typescript",
+			"svelte",
+			"css",
 			"html",
 			"javascript",
-			"typescript",
 			"tsx",
 			"c",
 			"cpp",
@@ -26,7 +28,7 @@ return {
 			enable = true,
 		},
 	},
-	-- config = function(_, opts)
-	-- 	require("nvim-treesitter.configs").setup(opts)
-	-- end,
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 }

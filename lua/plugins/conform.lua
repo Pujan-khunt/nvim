@@ -6,6 +6,7 @@ return {
 		local local_opts = {
 			log_level = vim.log.levels.ERROR,
 			formatters_by_ft = {
+				svelte = { "prettier" },
 				lua = { "stylua" },
 				javascript = { "biome" },
 				typescript = { "biome" },

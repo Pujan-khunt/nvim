@@ -51,7 +51,7 @@ return {
 					-- Automatically open completion window when a specific character like "."
 					-- is used. (To view properties and functions for a keyword. Ex. vim.api.|   <-- here as soon as I type the "." the window should appear)
 					show_on_trigger_character = true,
-					show_on_blocked_trigger_characters = { " ", "\n", "\t" },
+					show_on_blocked_trigger_characters = { " ", "\n", "\t", "$" },
 					show_on_insert_on_trigger_character = true,
 				},
 				accept = {
