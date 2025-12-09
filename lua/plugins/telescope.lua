@@ -17,9 +17,9 @@ return {
 			initial_mode = "insert",
 			hidden = true,
 			file_ignore_patterns = {
-				"^%.git",
-				"^.env",
-				"^node_modules/%",
+				".git",
+				".env",
+				"node_modules",
 			},
 			mappings = {
 				i = {
@@ -60,7 +60,7 @@ return {
 		telescope.load_extension("ui-select")
 
 		local builtin = require("telescope.builtin")
-		local config_dir = "$HOME/.config/nvim/"
+		local config_dir = "/home/pujan/.config/nvim/"
 
 		local cwd_on_open = vim.fn.getcwd()
 		vim.keymap.set("n", "<leader>ff", function()

@@ -75,3 +75,6 @@ vim.keymap.set("t", "<Esc><Esc", "<c-\\><c-n>", { noremap = true, silent = true,
 vim.keymap.set("n", "<leader>tn", "<cmd>TermNew<CR>", { desc = "Open New ToggleTerm " })
 vim.keymap.set("n", "<leader>tt", "<cmd>TermSelect<CR>", { desc = "Select ToggleTerm " })
 vim.keymap.set("n", "<leader>tr", "<cmd>ToggleTermSetName<CR>", { desc = "Set Terminal Name" })
+
+vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Split Window Vertically" })
+vim.keymap.set("n", "<leader>sv", "<cmd>split<cr>", { desc = "Split Window Horizontally" })
