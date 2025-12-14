@@ -8,8 +8,8 @@ return {
 			formatters_by_ft = {
 				svelte = { "prettier" },
 				lua = { "stylua" },
-				javascript = { "biome" },
-				typescript = { "biome" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 				javascriptreact = { "biome" },
 				typescriptreact = { "biome" },
 				json = { "biome" },
