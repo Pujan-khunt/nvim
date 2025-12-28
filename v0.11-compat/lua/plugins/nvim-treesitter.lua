@@ -3,7 +3,7 @@ return {
   branch = "main",
   version = false, -- use the latest parser versions
   build = ":TSUpdate",
-  lazy = false,
+  lazy = false, -- treesitter doesn't support lazy loading
   config = function()
           local ts = require("nvim-treesitter")
 
@@ -16,9 +16,12 @@ return {
                   -- Enable treesitter highlights
                   local ok = pcall(vim.treesitter.start, buf, lang)
 
-                  -- Enable indentation using treesitter
+                  -- Enable indentation and folds using treesitter
                   if ok then
                           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+                          vim.wo.foldmethod = "expr"
+                          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
                   end
                   return ok
           end

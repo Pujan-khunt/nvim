@@ -7,6 +7,8 @@ local opt = vim.opt
 -- Enable auto write (kinda like autosave)
 opt.autowrite = true 
 
+opt.autoindent = true
+
 -- opt.clipboard = "unnamedplus"
 
 -- Hide * markup for bold and italic, but not markers with substitutions
@@ -62,9 +64,15 @@ opt.splitright = true
 
 -- Number of spaces tabs count for
 opt.tabstop = 2 
+opt.softtabstop = 2 
+opt.shiftwidth = 2
 
 -- True color support
 opt.termguicolors = true
 
 -- Disable swapfiles and all the headaches that it causes
 opt.swapfile = false
+
+-- Avoid getting slammed with infinite folds at start
+opt.foldlevel = 99
+opt.foldlevelstart = 99

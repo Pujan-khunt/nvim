@@ -27,3 +27,14 @@ map("n", "<leader>ol", "<cmd>Lazy<CR>", { desc = "Open NetRW" })
 
 -- Close current (active) window
 map({ "n", "v", "x" }, "<leader>q", "<cmd>q<CR>", { desc = "Close current window" })
+
+-- Create window splits
+map("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Create vertical split" })
+map("n", "<leader>h", "<cmd>split<CR>", { desc = "Create horizontal split" })
+
+-- Navigate back and forth across folds
+map({ "n", "v" }, "[[", "zk%", { desc = "Goto start of previous fold" })
+map({ "n", "v" }, "]]", "zj", { desc = "Goto start of next fold" })
+
+map({ "n", "v" }, "H", "zc", { desc = "Close fold under the cursor" })
+map({ "n", "v" }, "L", "zo", { desc = "Open fold under the cursor" })
