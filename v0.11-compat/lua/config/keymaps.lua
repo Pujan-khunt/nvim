@@ -17,7 +17,10 @@ map("n", "<C-d>", "<C-d>zz", { desc = "Half page down + center cursor" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half page up + center cursor" })
 
 -- Source currently opened file
-map("n", "<leader>sf", "<cmd>source %<cr>", { desc = "Source current file" })
+map("n", "<leader>sf", function()
+  vim.cmd("source %")
+  print("file sourced :)")
+end, { desc = "Source current file" })
 
 -- Open NetRW
 map("n", "<leader>e", "<cmd>Ex<CR>", { desc = "Open NetRW" })
@@ -36,5 +39,9 @@ map("n", "<leader>h", "<cmd>split<CR>", { desc = "Create horizontal split" })
 map({ "n", "v" }, "[[", "zk%", { desc = "Goto start of previous fold" })
 map({ "n", "v" }, "]]", "zj", { desc = "Goto start of next fold" })
 
+-- Open and close folds easily
 map({ "n", "v" }, "H", "zc", { desc = "Close fold under the cursor" })
 map({ "n", "v" }, "L", "zo", { desc = "Open fold under the cursor" })
+
+-- Copy contents into clipboard
+map({ "v" }, "<leader>y", "\"+y", { desc = "Copy into clipboard" })
