@@ -1,5 +1,6 @@
-require("config.notifier")
+
 require("config.options")
+require("config.notifier")
 require("config.keymaps")
 require("config.autocmds")
 require("config.lazy")

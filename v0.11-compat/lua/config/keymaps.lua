@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 
-
 -- Quit everything forcefully.
 map("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Quit All" })
 
@@ -15,12 +14,6 @@ map("x", "<", "<gv", { desc = "Indent left (persistent selection)" })
 -- Keep cursor in the middle of the screen
 map("n", "<C-d>", "<C-d>zz", { desc = "Half page down + center cursor" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half page up + center cursor" })
-
--- Source currently opened file
-map("n", "<leader>sf", function()
-  vim.cmd("source %")
-  print("file sourced :)")
-end, { desc = "Source current file" })
 
 -- Open NetRW
 map("n", "<leader>e", "<cmd>Ex<CR>", { desc = "Open NetRW" })
@@ -45,3 +38,70 @@ map({ "n", "v" }, "L", "zo", { desc = "Open fold under the cursor" })
 
 -- Copy contents into clipboard
 map({ "v" }, "<leader>y", "\"+y", { desc = "Copy into clipboard" })
+
+-- Remap redo to Shift + U
+map("n", "<S-u>", "<C-r>", { desc = "Redo" })
+
+-- Source entire file or current selection
+map({ "n", "v" }, "<leader>sf", function()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  local extension = vim.fn.fnamemodify(filepath, ":e")
+
+  -- Only source files which are sourcable (.vim and .lua).
+  if extension == "vim" or extension == "lua" then
+    -- All possible outputs:
+    -- '^V': Visual Block
+    -- 'V' : Visual Line
+    -- 'v' : Visual
+    -- 'n' : normal
+    local mode = vim.api.nvim_get_mode().mode
+    local source_command = "source " .. filepath
+    local notify_message = ""
+
+    if mode ~= "n" then
+      -- Retrieve positions of the selection
+      -- getpos() returns [ bufnr, line_number, column, offset ]
+      local start_pos = vim.fn.getpos("v")
+      local end_pos = vim.fn.getpos(".")
+
+      -- Source partially (backwards range compatible)
+      -- lua is 1-indexed, I am an absolute idiot
+      local start_line = math.min(start_pos[2], end_pos[2])
+      local end_line = math.max(start_pos[2], end_pos[2])
+
+      -- Partial sourcing syntax: <line_start>,<line_end>source
+      source_command = start_line .. "," .. end_line .. "source"
+
+      notify_message = "Selection sourced from line " .. start_line .. " to line " .. end_line .. "."
+    else
+      local basename = vim.fn.fnamemodify(filepath, ":t")
+      notify_message = "File sourced: " .. basename
+    end
+
+    -- Run the source command
+    vim.cmd(source_command)
+    vim.notify(notify_message, vim.log.levels.INFO)
+  else
+    vim.notify("File cannot be sourced: " .. basename, vim.log.levels.ERROR)
+  end
+end, { desc = "Source selection/file" })
+
+map("n", "m", "s", { desc = "Delete + goto insert mode" })
+map("n", ";", "/", { desc = "Delete + goto insert mode" })
+
+-- LSP Formatting (if available)
+map({ "n", "v" }, "<leader>lf", function()
+  -- FormattingOptions are picked up from Neovim options (options.lua file)
+  vim.lsp.buf.format {
+    -- timeout_ms = 3000 -- Wait for 3 seconds for lsp to format before quitting
+    async = true, -- Renders timeout_ms useless if true, allows editing while buffer is formatting
+  }
+
+  local filepath = vim.api.nvim_buf_get_name(0)
+  local basename = vim.fn.fnamemodify(filepath, ":t")
+  vim.notify("File formatted: " .. basename, vim.log.levels.INFO, { timeout = 2500 })
+end, { desc = "Format buffer via LSP" })
+
+-- TODO: Backspace using a Control + ? in commmandline
+-- TODO: Scroll up and down while treesitter mode is active in search(commandline)
+-- TODO: Create the 'n' modifier or whatever it is called to be used for the next node/occurence. Eg. cin" will c-change i-inner n-next "-double-quote, this should wipe the contents of the next double quotes
