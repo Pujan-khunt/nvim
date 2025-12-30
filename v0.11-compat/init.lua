@@ -1,3 +1,4 @@
+require("config.notifier")
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
