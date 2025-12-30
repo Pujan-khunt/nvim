@@ -12,7 +12,7 @@ opt.autoindent = true
 -- opt.clipboard = "unnamedplus"
 
 -- Hide * markup for bold and italic, but not markers with substitutions
-opt.conceallevel = 2 
+opt.conceallevel = 2
 
 -- Confirm to save changes before exiting modified buffer
 opt.confirm = true 

@@ -4,56 +4,66 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     {
-    "<leader>ff", 
-    function()
-          require("telescope.builtin").find_files({ 
-            cwd = vim.fn.getcwd(),
-            hidden = true,
-            follow = true -- Follow symlinks to edit the original file.
-          })
-    end, 
-    desc = "Find files in current working directory" 
-    },
-    {
-    "<leader>lg", 
-    function()
-          require("telescope.builtin").live_grep({ cwd = vim.fn.getcwd() })
-    end, 
-    desc = "Live grep in current working directory" 
-    },
-    {
-     "<leader>fr",
-     function()
-      require("telescope.builtin").resume()
+      "<leader>ff",
+      function()
+        require("telescope.builtin").find_files({
+          cwd = vim.fn.getcwd(),
+          hidden = true,
+          follow = true -- Follow symlinks to edit the original file.
+        })
       end,
-     desc = "Resume last opened picker"
+      desc = "Find files in current working directory"
     },
     {
-     "<leader>fh",
-     function()
-      require("telescope.builtin").help_tags()
+      "<leader>lg",
+      function()
+        require("telescope.builtin").live_grep({ cwd = vim.fn.getcwd() })
       end,
-     desc = "Help tags picker"
+      desc = "Live grep in current working directory"
     },
+    {
+      "<leader>fr",
+      function()
+        require("telescope.builtin").resume()
+      end,
+      desc = "Resume last opened picker"
+    },
+    {
+      "<leader>fh",
+      function()
+        require("telescope.builtin").help_tags()
+      end,
+      desc = "Help tags picker"
+    },
+    {
+      "<leader>fs",
+      function()
+        require("telescope.builtin").search_history()
+      end,
+      desc = "Telescope history picker"
+    }
   },
   opts = {
-	  defaults = {
-		  dynamic_preview_title = true,
+    defaults = {
+      dynamic_preview_title = true,
 
-		  -- Classic.
-		  results_title = "You can't spell advertisements without semen between the tits",
+      -- Classic.
+      results_title = "You can't spell advertisements without semen between the tits",
 
-		  -- Ignore .env files to risk exposing secrets
-		  -- Ignore node_modules and .git for obvious reasons
-		  file_ignore_patterns = { "%.env", "^node_modules/", "^.git" },
+      -- Ignore .env files to risk exposing secrets
+      -- Ignore node_modules and .git for obvious reasons
+      file_ignore_patterns = { "%.env", "^node_modules/", "^.git" },
       mappings = {
-              i = {
-                      ["<C-j>"] = "move_selection_next",
-                      ["<C-k>"] = "move_selection_previous",
-                      ["<C-v>"] = "file_vsplit",
-                      ["<C-l>"] = "select_default"
-              }
+        -- See telescope.actions for more
+        i = {
+          ["<C-j>"] = "move_selection_next",
+          ["<C-k>"] = "move_selection_previous",
+          ["<C-v>"] = "file_vsplit",
+          ["<C-h>"] = "file_split",
+          ["<C-l>"] = "select_default",
+          ["<C-;>"] = "close",
+        }
       }
     },
- }
+  }
 }
