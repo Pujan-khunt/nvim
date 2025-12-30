@@ -102,6 +102,10 @@ map({ "n", "v" }, "<leader>lf", function()
   vim.notify("File formatted: " .. basename, vim.log.levels.INFO, { timeout = 2500 })
 end, { desc = "Format buffer via LSP" })
 
+-- Scroll using vim motions while keeping things centered.
+map("n", "<C-j>", "<C-d>zz", { desc = "Scroll Down (centered)" })
+map("n", "<C-k>", "<C-u>zz", { desc = "Scroll Up (centered)" })
+
 -- TODO: Backspace using a Control + ? in commmandline
 -- TODO: Scroll up and down while treesitter mode is active in search(commandline)
 -- TODO: Create the 'n' modifier or whatever it is called to be used for the next node/occurence. Eg. cin" will c-change i-inner n-next "-double-quote, this should wipe the contents of the next double quotes

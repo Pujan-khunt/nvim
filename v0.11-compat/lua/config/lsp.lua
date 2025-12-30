@@ -1,4 +1,4 @@
-vim.lsp.config["lua_ls"] = {
+vim.lsp.config("lua_ls", {
   -- Command and arguments to run the language server
   cmd = { "lua-language-server" },
 
@@ -16,6 +16,6 @@ vim.lsp.config["lua_ls"] = {
       diagnostics = { global = { "vim" } },
     }
   }
-}
+})
 
 vim.lsp.enable("lua_ls")

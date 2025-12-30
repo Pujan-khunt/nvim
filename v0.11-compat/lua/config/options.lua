@@ -77,5 +77,8 @@ opt.swapfile = false
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 
+-- Dsiable persistent highlights after search
+opt.hlsearch = false
+
 -- Use the custom notifier
 vim.g.custom_notifier = 1
