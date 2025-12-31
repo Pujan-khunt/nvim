@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local builtin = require("telescope.builtin")
 
     local function map(mode, keybind, command, description)
-      vim.keymap.set(mode, keybind, command, { desc = description })
+      vim.keymap.set(mode, keybind, command, { desc = description, buffer = bufnr })
     end
 
     if client:supports_method("textDocument/definition") then

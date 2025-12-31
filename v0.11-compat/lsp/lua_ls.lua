@@ -26,9 +26,22 @@ return {
         disable = {}, -- Disable certain diagnostics globally
         globals = { "vim" },
       },
-      format = { enable = true }, -- Disable after setting up formatter for lua files
       hint = { enable = true },
       runtime = { version = "LuaJIT" },
+      workspace = {
+        -- checkThirdParty = false,
+        library = {
+          -- Pulls the Neovim runtime directory at /usr/share/nvim/runtime/lua
+          vim.env.VIMRUNTIME
+        }
+      },
     }
-  }
+  },
+
+  on_init = function(client)
+    -- Manually turn of the capability for formatting
+    -- to prevent creating a keybind for it, when LspAttach is triggered
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
 }
