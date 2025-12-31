@@ -7,3 +7,6 @@ Source: https://lazy.folke.io/spec
 - ripgrep (telescope, live_grep)
 - fd (telescope, picker)
 - tree-sitter-cli (nvim-treesitter, compiling parsers)
+- cargo (blink, compiling)
+- rustup (blink, compiling)
+

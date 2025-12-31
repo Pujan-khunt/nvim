@@ -7,7 +7,6 @@ return {
   -- Filetypes in neovim to automatically attach to. To view the filetype, run :echo &filetype
   filetypes = { "lua" },
 
-
   -- Files that share the same root directory will reuse the LSP server connection.
   -- Nested lists indicate equal priority.
   root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
