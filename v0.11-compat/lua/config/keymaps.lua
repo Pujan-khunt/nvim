@@ -87,7 +87,7 @@ map({ "n", "v" }, "<leader>sf", function()
 end, { desc = "Source selection/file" })
 
 map("n", "m", "s", { desc = "Delete + goto insert mode" })
-map("n", ";", "/", { desc = "Delete + goto insert mode" })
+map("n", "'", "/", { desc = "Delete + goto insert mode" })
 
 -- LSP Formatting (if available)
 map({ "n", "v" }, "<leader>lf", function()
@@ -105,6 +105,9 @@ end, { desc = "Format buffer via LSP" })
 -- Scroll using vim motions while keeping things centered.
 map("n", "<C-j>", "<C-d>zz", { desc = "Scroll Down (centered)" })
 map("n", "<C-k>", "<C-u>zz", { desc = "Scroll Up (centered)" })
+
+-- Easier lsp debugging
+map("n", "<leader>dl", "<cmd>checkhealth vim.lsp<CR>", { desc = "Check vim.lsp health" })
 
 -- TODO: Backspace using a Control + ? in commmandline
 -- TODO: Scroll up and down while treesitter mode is active in search(commandline)

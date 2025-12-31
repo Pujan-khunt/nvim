@@ -21,3 +21,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+  pattern = "*",
+  callback = function()
+    -- Only refresh if the client supports it
+    local client = vim.lsp.get_clients({ bufnr = 0 })[1]
+    if client and client.supports_method("textDocument/codeLens") then
+      vim.lsp.codelens.refresh({ bufnr = 0 })
+    end
+  end,
+})
+
