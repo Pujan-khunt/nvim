@@ -80,5 +80,8 @@ opt.foldlevelstart = 99
 -- Dsiable persistent highlights after search
 opt.hlsearch = false
 
+-- Apply border on all floating windows
+opt.winborder = "rounded"
+
 -- Use the custom notifier
 vim.g.custom_notifier = 0
