@@ -41,7 +41,7 @@ function M.notify(msg, level, opts)
   local config = {
     style = "minimal",
     relative = "editor",
-    width = 100,
+    width = math.min(#lines[1] + 4, 80),
     height = #lines,
     row = vim.o.lines,
     col = vim.o.columns,

@@ -1,4 +1,5 @@
 --- https://luals.github.io/wiki/settings/
+--- @return vim.lsp.Config
 return {
   -- Command and arguments to run the language server
   cmd = { "lua-language-server" },
@@ -32,7 +33,7 @@ return {
         -- checkThirdParty = false,
         library = {
           -- Pulls the Neovim runtime directory at /usr/share/nvim/runtime/lua
-          vim.env.VIMRUNTIME
+          -- vim.env.VIMRUNTIME
         }
       },
     }
@@ -41,7 +42,7 @@ return {
   on_init = function(client)
     -- Manually turn of the capability for formatting
     -- to prevent creating a keybind for it, when LspAttach is triggered
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
+    -- client.server_capabilities.documentFormattingProvider = false
+    -- client.server_capabilities.documentRangeFormattingProvider = false
   end,
 }

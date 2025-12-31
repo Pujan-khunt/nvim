@@ -81,4 +81,4 @@ opt.foldlevelstart = 99
 opt.hlsearch = false
 
 -- Use the custom notifier
-vim.g.custom_notifier = 1
+vim.g.custom_notifier = 0

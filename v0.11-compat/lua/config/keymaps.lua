@@ -37,7 +37,10 @@ map({ "n", "v" }, "H", "zc", { desc = "Close fold under the cursor" })
 map({ "n", "v" }, "L", "zo", { desc = "Open fold under the cursor" })
 
 -- Copy contents into clipboard
-map({ "v" }, "<leader>y", "\"+y", { desc = "Copy into clipboard" })
+map({ "v" }, "<leader>y", "\"+y", { desc = "Copy selection into clipboard" })
+
+-- Cut contents into clipboard
+map({ "x" }, "<leader>d", "\"+d", { desc = "Cut selection into clipboard" })
 
 -- Remap redo to Shift + U
 map("n", "<S-u>", "<C-r>", { desc = "Redo" })

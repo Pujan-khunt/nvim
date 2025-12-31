@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
   callback = function()
     -- Only refresh if the client supports it
     local client = vim.lsp.get_clients({ bufnr = 0 })[1]
-    if client and client.supports_method("textDocument/codeLens") then
+    if client and client:supports_method("textDocument/codeLens") then
       vim.lsp.codelens.refresh({ bufnr = 0 })
     end
   end,
@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "LSP: Code Action")
     end
 
-    if client:supports_method("textDocument/formatting") and vim.lsp.config["lua_ls"].settings.Lua.format.enable == true then
+    if client:supports_method("textDocument/formatting") then
       map("n", "<leader>lf", function()
         vim.lsp.buf.format({ async = true })
       end, "LSP: Format Buffer")
@@ -100,9 +100,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end, "LSP: Toggle Inlay Hints")
     end
 
-    -- 5. Diagnostics (Standard Vim features, usually bound on attach)
-    map("n", "[d", vim.diagnostic.goto_prev, "Diagnostic: Go to previous")
-    map("n", "]d", vim.diagnostic.goto_next, "Diagnostic: Go to next")
+    -- Already created defaults
+    -- map("n", "[d", vim.diagnostic.goto_prev, "Diagnostic: Go to previous")
+    -- map("n", "]d", vim.diagnostic.goto_next, "Diagnostic: Go to next")
     map("n", "<leader>of", vim.diagnostic.open_float, "Diagnostic: Show line diagnostics")
     map("n", "<leader>ol", vim.diagnostic.setloclist, "Diagnostic: Open location list")
   end,
