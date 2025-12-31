@@ -46,6 +46,7 @@ map("n", "<S-u>", "<C-r>", { desc = "Redo" })
 map({ "n", "v" }, "<leader>sf", function()
   local filepath = vim.api.nvim_buf_get_name(0)
   local extension = vim.fn.fnamemodify(filepath, ":e")
+  local basename = vim.fn.fnamemodify(filepath, ":t")
 
   -- Only source files which are sourcable (.vim and .lua).
   if extension == "vim" or extension == "lua" then
@@ -74,7 +75,6 @@ map({ "n", "v" }, "<leader>sf", function()
 
       notify_message = "Selection sourced from line " .. start_line .. " to line " .. end_line .. "."
     else
-      local basename = vim.fn.fnamemodify(filepath, ":t")
       notify_message = "File sourced: " .. basename
     end
 
@@ -88,19 +88,6 @@ end, { desc = "Source selection/file" })
 
 map("n", "m", "s", { desc = "Delete + goto insert mode" })
 map("n", "'", "/", { desc = "Delete + goto insert mode" })
-
--- LSP Formatting (if available)
-map({ "n", "v" }, "<leader>lf", function()
-  -- FormattingOptions are picked up from Neovim options (options.lua file)
-  vim.lsp.buf.format {
-    -- timeout_ms = 3000 -- Wait for 3 seconds for lsp to format before quitting
-    async = true, -- Renders timeout_ms useless if true, allows editing while buffer is formatting
-  }
-
-  local filepath = vim.api.nvim_buf_get_name(0)
-  local basename = vim.fn.fnamemodify(filepath, ":t")
-  vim.notify("File formatted: " .. basename, vim.log.levels.INFO, { timeout = 2500 })
-end, { desc = "Format buffer via LSP" })
 
 -- Scroll using vim motions while keeping things centered.
 map("n", "<C-j>", "<C-d>zz", { desc = "Scroll Down (centered)" })
