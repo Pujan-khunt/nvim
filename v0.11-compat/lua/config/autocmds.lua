@@ -82,12 +82,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "LSP: Code Action")
     end
 
-    if client:supports_method("textDocument/formatting") then
-      map("n", "<leader>lf", function()
-        vim.lsp.buf.format({ async = true })
-      end, "LSP: Format Buffer")
-    end
-
     if client:supports_method("textDocument/inlayHint") then
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 

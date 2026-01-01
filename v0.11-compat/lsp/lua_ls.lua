@@ -37,11 +37,4 @@ return {
       -- },
     }
   },
-
-  on_init = function(client)
-    -- Manually turn of the capability for formatting
-    -- to prevent creating a keybind for it, when LspAttach is triggered
-    -- client.server_capabilities.documentFormattingProvider = false
-    -- client.server_capabilities.documentRangeFormattingProvider = false
-  end,
 }
