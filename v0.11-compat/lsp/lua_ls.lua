@@ -1,5 +1,5 @@
 --- https://luals.github.io/wiki/settings/
---- @return vim.lsp.Config
+--- @type vim.lsp.Config
 return {
   -- Command and arguments to run the language server
   cmd = { "lua-language-server" },
@@ -24,17 +24,17 @@ return {
       },
       diagnostics = {
         disable = {}, -- Disable certain diagnostics globally
-        globals = { "vim" },
       },
       hint = { enable = true },
       runtime = { version = "LuaJIT" },
-      workspace = {
-        -- checkThirdParty = false,
-        library = {
-          -- Pulls the Neovim runtime directory at /usr/share/nvim/runtime/lua
-          -- vim.env.VIMRUNTIME
-        }
-      },
+      -- Managed by ../lua/plugins/lazydev.lua
+      -- workspace = {
+      --   -- checkThirdParty = false,
+      --   library = {
+      --     -- Pulls the Neovim runtime directory at /usr/share/nvim/runtime/lua
+      --     vim.env.VIMRUNTIME
+      --   }
+      -- },
     }
   },
 

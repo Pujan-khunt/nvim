@@ -1,3 +1,5 @@
+--- @module "lazy"
+--- @type LazySpec
 return {
   "scottmckendry/cyberdream.nvim",
   lazy = false,

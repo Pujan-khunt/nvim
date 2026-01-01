@@ -1,3 +1,5 @@
+--- @module "lazy"
+--- @type LazySpec
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope", -- Lazy load based on this command.

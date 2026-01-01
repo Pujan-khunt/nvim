@@ -1,6 +1,9 @@
+--- @module "lazy"
+--- @type LazySpec
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  -- https://github.com/rafamadriz/friendly-snippets
+  -- dependencies = { "rafamadriz/friendly-snippets" },
   build = 'cargo +nightly build --release',
 
   ---@module 'blink.cmp'
@@ -15,7 +18,6 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       preset = 'none',
-
       -- Navigation in completion window
       ["<C-j>"] = { 'show', 'select_next', 'fallback' },
       ["<C-k>"] = { 'show', 'select_prev', 'fallback' },
@@ -25,8 +27,7 @@ return {
       ["<C-l>"] = { 'select_and_accept', 'snippet_forward', 'fallback' },
       ["<C-h>"] = { 'snippet_backward', 'fallback' },
 
-
-      ["<C-m>"] = { 'show_signature', 'hide_signature', 'fallback' },
+      ["<C-p>"] = { "show_signature", "hide_signature", "fallback" },
 
       -- Documentation navigation
       ["<C-u>"] = { 'scroll_documentation_up', 'fallback' },
@@ -49,7 +50,10 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { "lazydev", 'lsp', 'path', 'snippets', 'buffer' },
+      per_filetype = {
+        lua = { inherit_defaults = true, "lazydev" },
+      },
+      default = { 'lazydev', "lsp", 'path', 'snippets', 'buffer' },
       providers = {
         lazydev = {
           name = "LazyDev",
@@ -59,14 +63,10 @@ return {
       }
     },
 
+    -- signature = { enabled = true, window = { show_documentation = false } },
     signature = { enabled = true },
 
-    -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-    -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-    -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-    --
-    -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = "rust" }
   },
   opts_extend = { "sources.default" }
 }
