@@ -84,4 +84,4 @@ opt.hlsearch = false
 opt.winborder = "rounded"
 
 -- Use the custom notifier
-vim.g.custom_notifier = 0
+vim.g.custom_notifier = 1

@@ -1,12 +1,12 @@
 --- @module "lazy"
 --- @type LazySpec
 return {
-  "scottmckendry/cyberdream.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    variant = "auto",
-    transparent = false,
-    italic_comments = true,
-  },
+	"scottmckendry/cyberdream.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {
+		variant = "auto",
+		transparent = false,
+		italic_comments = true,
+	},
 }
