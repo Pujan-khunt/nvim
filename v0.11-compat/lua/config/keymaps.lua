@@ -16,7 +16,7 @@ map("n", "<C-d>", "<C-d>zz", { desc = "Half page down + center cursor" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Half page up + center cursor" })
 
 -- Open NetRW
-map("n", "<leader>e", vim.cmd.Ex, { desc = "Open NetRW" })
+map("n", "<leader>e", vim.cmd.Oil, { desc = "Open NetRW" })
 
 -- Open Lazy UI
 map("n", "<leader>ol", vim.cmd.Lazy, { desc = "Open NetRW" })
