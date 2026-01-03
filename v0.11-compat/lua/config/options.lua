@@ -36,8 +36,8 @@ opt.jumpoptions = "stack,view"
 opt.linebreak = true
 
 -- Show some invisible characters
-opt.list = true
-opt.listchars = "tab:» ,trail:·,nbsp:␣"
+-- opt.list = true
+-- opt.listchars = "tab:» ,trail:·,nbsp:␣"
 
 -- Print line number
 opt.number = true

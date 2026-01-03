@@ -9,4 +9,5 @@ Source: https://lazy.folke.io/spec
 - tree-sitter-cli (nvim-treesitter, compiling parsers)
 - cargo (blink, compiling)
 - rustup (blink, compiling)
+- opencode (opencode.nvim)
 
