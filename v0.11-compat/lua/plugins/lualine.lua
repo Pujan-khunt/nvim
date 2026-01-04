@@ -31,8 +31,17 @@ return {
 			lualine_z = { "progress" },
 		},
 		tabline = {
-			lualine_x = { "filename" },
-			lualine_y = { "filesize" },
+			lualine_x = {
+				function()
+					local status, opencode = pcall(require, "opencode")
+					if status and opencode.statusline then
+						return opencode.statusline()
+					end
+					return ""
+				end,
+			},
+			lualine_y = { "filename" },
+			lualine_z = { "filesize" },
 		},
 	},
 }

@@ -35,5 +35,21 @@ return {
 			mode = { "n", "t" },
 			desc = "Toggle opencode",
 		},
+		{
+			"<S-C-k>",
+			function()
+				require("opencode").command("session.half.page.up")
+			end,
+			mode = { "n", "t" },
+			desc = "Scroll up in the session window",
+		},
+		{
+			"<S-C-j>",
+			function()
+				require("opencode").command("session.half.page.down")
+			end,
+			mode = { "n", "t" },
+			desc = "Scroll down in the session window",
+		},
 	},
 }

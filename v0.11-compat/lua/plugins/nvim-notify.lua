@@ -8,6 +8,6 @@ return {
 	--- @module "notify"
 	--- @type notify.Config
 	opts = {
-		merge_duplicates = 3,
+		merge_duplicates = 1,
 	},
 }
