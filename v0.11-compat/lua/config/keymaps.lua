@@ -99,9 +99,6 @@ map("n", "<C-k>", "<C-u>zz", { desc = "Scroll Up (centered)" })
 -- Easier lsp debugging
 map("n", "<leader>dl", "<cmd>checkhealth vim.lsp<CR>", { desc = "Check vim.lsp health" })
 
--- map("t", "<Esc><Esc>", "<C-w>n", { desc = "Directly move left from terminal mode" })
-map("t", "<C-w>h", "<C-\\><C-n><C-w>h", { desc = "Directly move left from terminal mode" })
-
 -- TODO: Backspace using a Control + ? in commmandline
 -- TODO: Scroll up and down while treesitter mode is active in search(commandline)
 -- TODO: Create the 'n' modifier or whatever it is called to be used for the next node/occurence. Eg. cin" will c-change i-inner n-next "-double-quote, this should wipe the contents of the next double quotes

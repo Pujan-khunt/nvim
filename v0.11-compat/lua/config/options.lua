@@ -83,5 +83,10 @@ opt.hlsearch = false
 -- Apply border on all floating windows
 opt.winborder = "rounded"
 
--- Use the custom notifier
-vim.g.custom_notifier = 1
+-- Setting undodir and undofile for persistent undo features
+local undodir = vim.fn.stdpath("data") .. "/undo"
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p")
+end
+opt.undodir = undodir
+opt.undofile = true

@@ -44,6 +44,13 @@ return {
 			end,
 			desc = "Telescope history picker",
 		},
+		{
+			"<leader>nh",
+			function()
+				require("telescope").load_extension("notify")
+				require("telescope").extensions.notify.notify()
+			end,
+		},
 	},
 	opts = {
 		defaults = {

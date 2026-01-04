@@ -36,5 +36,4 @@ return {
 			desc = "Toggle opencode",
 		},
 	},
-	opts = {},
 }
