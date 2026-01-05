@@ -33,7 +33,7 @@ return {
 		{
 			"<leader>fh",
 			function()
-				require("telescope.builtin").help_tags()
+				require("telescope.builtin").help_tags({ lang = "en" })
 			end,
 			desc = "Help tags picker",
 		},

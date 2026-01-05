@@ -6,4 +6,4 @@ require("config.lazy")
 -- apply the colorscheme
 vim.cmd("colorscheme cyberdream")
 
-vim.lsp.enable("lua_ls")
+vim.lsp.enable({ "lua_ls", "astro_ls" })

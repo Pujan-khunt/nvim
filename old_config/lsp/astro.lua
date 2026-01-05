@@ -23,6 +23,7 @@ return {
 		astro = {
 			-- TypeScript integration settings
 			typescript = {
+				tsdk = "/home/pujan/.local/share/pnpm/global/5/node_modules/typescript/lib",
 				enable = true,
 				diagnostics = { enable = true },
 			},

@@ -10,4 +10,10 @@ Source: https://lazy.folke.io/spec
 - cargo (blink, compiling)
 - rustup (blink, compiling)
 - opencode (opencode.nvim)
+- lua-language-server (lua lsp)
+- @astrojs/language-server {download from the npm registry} (astro lsp)
 
+### Astro language server
+To use formatting via the astro language server, you will need 2 packages locally installed in your project.
+- prettier
+- prettier-plugin-astro

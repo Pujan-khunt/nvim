@@ -7,7 +7,11 @@ return {
 	},
 	init = function()
 		---@type opencode.Opts
-		vim.g.opencode_opts = {}
+		vim.g.opencode_opts = {
+			provider = {
+				enabled = "tmux",
+			},
+		}
 		vim.o.autoread = true
 	end,
 	keys = {
@@ -36,7 +40,7 @@ return {
 			desc = "Toggle opencode",
 		},
 		{
-			"<S-C-k>",
+			"<C-]>",
 			function()
 				require("opencode").command("session.half.page.up")
 			end,
@@ -44,7 +48,7 @@ return {
 			desc = "Scroll up in the session window",
 		},
 		{
-			"<S-C-j>",
+			"<C-[>",
 			function()
 				require("opencode").command("session.half.page.down")
 			end,
