@@ -8,9 +8,8 @@ return {
 	init = function()
 		---@type opencode.Opts
 		vim.g.opencode_opts = {
-			provider = {
-				enabled = "tmux",
-			},
+			events = { enabled = false },
+			-- provider = { enabled = "tmux" },
 		}
 		vim.o.autoread = true
 	end,
