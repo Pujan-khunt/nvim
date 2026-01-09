@@ -12,6 +12,8 @@ Source: https://lazy.folke.io/spec
 - opencode (opencode.nvim)
 - lua-language-server (lua lsp)
 - @astrojs/language-server {download from the npm registry} (astro lsp)
+- gopls {go install golang.org/x/tools/gopls} (go lsp)
+- lazygit
 
 ### Astro language server
 To use formatting via the astro language server, you will need 2 packages locally installed in your project.

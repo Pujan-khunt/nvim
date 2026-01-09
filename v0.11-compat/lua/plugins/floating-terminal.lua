@@ -9,6 +9,21 @@ return {
 			mode = { "n", "t" },
 			desc = "Toggle floating terminal",
 		},
+		{
+			"<C-g>",
+			function()
+				local Terminal = require("toggleterm.terminal").Terminal
+				local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+				lazygit:toggle()
+			end,
+			desc = "Toggle LazyGit",
+		},
 	},
-	opts = {},
+	opts = {
+		direction = "float",
+		float_opts = {
+			border = "double",
+			title_pos = "center",
+		},
+	},
 }
