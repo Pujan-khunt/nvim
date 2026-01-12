@@ -65,7 +65,7 @@ return {
 			pattern = "LazyDone", -- User autocmd signalled by lazy.nvim about completion of setup at startup
 			once = true,
 			callback = function()
-				ts.install(ts_parsers, { max_jobs = 2 }) -- no-op if parser is already downloaded
+				ts.install(ts_parsers, { max_jobs = 1 }) -- no-op if parser is already downloaded
 			end,
 		})
 

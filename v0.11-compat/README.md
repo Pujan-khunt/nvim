@@ -14,12 +14,14 @@ Source: https://lazy.folke.io/spec
 - @astrojs/language-server {download from the npm registry} (astro lsp)
 - gopls {go install golang.org/x/tools/gopls} (go lsp)
 - lazygit
-- jdtls {https://download.eclipse.org/jdtls/milestones/?d} (java lsp)
+- [JDTLS](https://github.com/eclipse-jdtls/eclipse.jdt.ls) {[Direct Release](https://download.eclipse.org/jdtls/milestones/?d) or build from source (recommended for latest version)} (java lsp)
+- [Java Debug Adapter](https://github.com/microsoft/java-debug) {build from source (recommended for latest version) - } (java dap)
 
 ### Java language server
-- Make sure to set the path of `jdtls` in the `lsp/java_ls.lua` file.
+- Make sure to set the path of `jdtls` in the `lsp/plugins/java-setup.lua` file.
+- Make sure to set the path for `java-debug-adapter`
 
 ### Astro language server
 To use formatting via the astro language server, you will need 2 packages locally installed in your project.
-- prettier
-- prettier-plugin-astro
+- `prettier`
+- `prettier-plugin-astro`
