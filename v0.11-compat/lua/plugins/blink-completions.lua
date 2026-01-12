@@ -2,8 +2,10 @@
 --- @type LazySpec
 return {
 	"saghen/blink.cmp",
+
 	-- https://github.com/rafamadriz/friendly-snippets
-	-- dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = { "rafamadriz/friendly-snippets" },
+
 	build = "cargo +nightly build --release",
 
 	---@module 'blink.cmp'

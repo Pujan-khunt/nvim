@@ -8,6 +8,7 @@ return {
 	opts = {
 		skip_confirm_for_simple_edits = true,
 		delete_to_trash = true,
+		watch_for_changes = true,
 		keymaps = {
 			["l"] = { "actions.select", mode = "n" },
 			["h"] = { "actions.parent", mode = "n" },

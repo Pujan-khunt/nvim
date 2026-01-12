@@ -15,11 +15,9 @@ return {
 			},
 			codelenses = {
 				generate = true,
-				gc_details = true,
 				test = true,
 				tidy = true,
 			},
-			completeUnimported = true,
 			semanticTokens = true,
 			staticcheck = true,
 			usePlaceholders = true,

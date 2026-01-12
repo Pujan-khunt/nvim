@@ -14,6 +14,10 @@ Source: https://lazy.folke.io/spec
 - @astrojs/language-server {download from the npm registry} (astro lsp)
 - gopls {go install golang.org/x/tools/gopls} (go lsp)
 - lazygit
+- jdtls {https://download.eclipse.org/jdtls/milestones/?d} (java lsp)
+
+### Java language server
+- Make sure to set the path of `jdtls` in the `lsp/java_ls.lua` file.
 
 ### Astro language server
 To use formatting via the astro language server, you will need 2 packages locally installed in your project.
