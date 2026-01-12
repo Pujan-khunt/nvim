@@ -62,11 +62,37 @@ return {
 					module = "lazydev.integrations.blink",
 					score_offset = 100,
 				},
+				snippets = {
+					name = "Snippets",
+					module = "blink.cmp.sources.snippets",
+					score_offset = 80,
+					transform_items = function(_, items)
+						local col = vim.api.nvim_win_get_cursor(0)[2]
+						local line = vim.api.nvim_get_current_line()
+						local cursor_before_line = line:sub(1, col)
+						-- Match the word characters before the cursor (e.g., "sysout")
+						local keyword = cursor_before_line:match("[%w_\\-]+$")
+
+						if keyword then
+							for _, item in ipairs(items) do
+								-- Apply the range to replace the typed keyword with the snippet body
+								item.textEdit = {
+									newText = item.insertText or item.label,
+									range = {
+										start = { line = vim.fn.line(".") - 1, character = col - #keyword },
+										["end"] = { line = vim.fn.line(".") - 1, character = col },
+									},
+								}
+							end
+						end
+						return items
+					end,
+				},
 			},
 		},
 
-		-- signature = { enabled = true, window = { show_documentation = false } },
-		signature = { enabled = true },
+		signature = { enabled = true, window = { show_documentation = false } },
+		-- signature = { enabled = true },
 
 		fuzzy = { implementation = "rust" },
 	},
