@@ -64,6 +64,16 @@ return {
 			-- 3. THE CONFIGURATION
 			-- -----------------------------------------------------------------------
 			local config = {
+				settings = {
+					java = {
+						format = {
+							settings = {
+								url = "../../lua/config/eclipse-formatter.xml",
+								profile = "MyCustomProfile",
+							},
+						},
+					},
+				},
 				cmd = {
 					"java",
 					"-Declipse.application=org.eclipse.jdt.ls.core.id1",
