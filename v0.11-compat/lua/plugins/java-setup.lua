@@ -1,12 +1,11 @@
 --- @module "lazy"
 --- @type LazySpec
 return {
-	-- 1. The Debugger Interface (nvim-dap)
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			"rcarriga/nvim-dap-ui", -- Nice UI for the debugger
-			"nvim-neotest/nvim-nio", -- Required by dap-ui
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio", -- dap-ui dependency
 		},
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
@@ -19,19 +18,11 @@ return {
 			dap.listeners.before.launch.dapui_config = function()
 				dapui.open()
 			end
-			-- dap.listeners.before.event_terminated.dapui_config = function()
-			-- 	dapui.close()
-			-- end
-			-- dap.listeners.before.event_exited.dapui_config = function()
-			-- 	dapui.close()
-			-- end
 		end,
 	},
-
-	-- 2. The Java Adapter (nvim-jdtls)
 	{
 		"mfussenegger/nvim-jdtls",
-		ft = "java", -- Only load on java files
+		ft = "java",
 		config = function()
 			local home = os.getenv("HOME")
 			local jdtls = require("jdtls")
@@ -54,28 +45,26 @@ return {
 
 			local jdtls_path = home .. "/Downloads/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository"
 			local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+			local config_dir = "config_linux"
 
-			-- Determine OS config (linux/mac/windows)
-			local system = vim.uv.os_uname().sysname
-			local config_dir = system == "Darwin" and "config_mac"
-				or (system == "Linux" and "config_linux" or "config_win")
-
-			-- -----------------------------------------------------------------------
-			-- 3. THE CONFIGURATION
-			-- -----------------------------------------------------------------------
 			local config = {
 				settings = {
 					java = {
 						format = {
+							comments = { enabled = true },
+							enabled = true,
+							insertSpaces = true,
+							onType = { enabled = false },
+							tabSize = 4,
 							settings = {
-								url = "../../lua/config/eclipse-formatter.xml",
-								profile = "MyCustomProfile",
+								url = vim.fn.stdpath("config") .. "/lua/config/google-formatter.xml",
+								profile = "GoogleStyle",
 							},
 						},
 					},
 				},
 				cmd = {
-					"java",
+					"/usr/lib/jvm/java-21-openjdk/bin/java",
 					"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 					"-Dosgi.bundles.defaultStartLevel=4",
 					"-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -83,13 +72,15 @@ return {
 					"-Dosgi.sharedConfiguration.area=" .. jdtls_path .. "/" .. config_dir,
 					"-Dosgi.sharedConfiguration.area.readOnly=true",
 					"-Dosgi.configuration.cascaded=true",
-					"-noverify",
 					"-Xms1G",
 					"--add-modules=ALL-SYSTEM",
 					"--add-opens",
 					"java.base/java.util=ALL-UNNAMED",
 					"--add-opens",
 					"java.base/java.lang=ALL-UNNAMED",
+					"-Declipse.log.level=ALL", -- Log everything from Eclipse
+					"-Dosgi.debug=true", -- Enable OSGi debugging
+					"-Declipse.debug=true", -- Enable Eclipse platform debugging
 					"-jar",
 					launcher_jar,
 					"-data",
@@ -104,7 +95,10 @@ return {
 
 				on_attach = function(_, bufnr)
 					-- Activate the debugger
-					jdtls.setup_dap({ hotcodereplace = "auto" })
+					jdtls.setup_dap({
+						hotcodereplace = "auto",
+						config_overrides = {},
+					})
 					require("jdtls.dap").setup_dap_main_class_configs()
 
 					-- Keymappings for debugging
@@ -119,7 +113,6 @@ return {
 					map("n", "<C-[>", require("dap").step_into, "Debug: Step Into")
 				end,
 			}
-
 			-- Start the server
 			jdtls.start_or_attach(config)
 		end,

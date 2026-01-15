@@ -93,8 +93,8 @@ map("n", "m", "s", { desc = "Delete + goto insert mode" })
 map("n", "'", "/", { desc = "Delete + goto insert mode" })
 
 -- Scroll using vim motions while keeping things centered.
-map("n", "<C-j>", "<C-d>zz", { desc = "Scroll Down (centered)" })
-map("n", "<C-k>", "<C-u>zz", { desc = "Scroll Up (centered)" })
+map({ "n", "t", "v" }, "<C-j>", "<C-d>zz", { desc = "Scroll Down (centered)" })
+map({ "n", "t", "v" }, "<C-k>", "<C-u>zz", { desc = "Scroll Up (centered)" })
 
 -- Easier lsp debugging
 map("n", "<leader>dl", "<cmd>checkhealth vim.lsp<CR>", { desc = "Check vim.lsp health" })
