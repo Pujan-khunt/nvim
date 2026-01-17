@@ -1,7 +1,7 @@
---- https://github.com/docker/docker-language-server
+--- https://github.com/rcjsuen/dockerfile-language-server
 --- @type vim.lsp.Config
 return {
-	cmd = { "docker-language-server", "start", "--stdio" },
+	cmd = { "docker-langserver", "--stdio" },
 
 	filetypes = { "dockerfile", "docker-compose", "bake" },
 
@@ -11,23 +11,6 @@ return {
 		"docker-bake.hcl",
 		".dockerignore",
 		".git",
-	},
-
-	init_options = {
-		-- Telemetry can be set to "all", "error", or "off".
-		-- "off" is a good default for privacy.
-		telemetry = "off",
-
-		dockercomposeExperimental = {
-			-- Compose file support is enabled by default.
-			composeSupport = true,
-		},
-
-		dockerfileExperimental = {
-			-- Set to true if you also use 'rcjsuen/dockerfile-language-server'
-			-- to avoid duplicate diagnostic messages.
-			removeOverlappingIssues = false,
-		},
 	},
 
 	settings = {},

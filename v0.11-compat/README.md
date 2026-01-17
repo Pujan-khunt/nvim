@@ -18,6 +18,7 @@ Source: https://lazy.folke.io/spec
 - [Java Debug Adapter](https://github.com/microsoft/java-debug) {build from source (recommended for latest version)} (java dap)
 - [nodejs & npm](https://nodejs.org/en/download) (markdown-preview)
 - [Docker Language Server](https://github.com/docker/docker-language-server) (Dockerfile lsp)
+- [Yaml Language Server](https://github.com/redhat-developer/yaml-language-server) (Yaml LSP)
 
 ### Java language server
 - Make sure to set the path of `jdtls` in the `lsp/plugins/java-setup.lua` file.
