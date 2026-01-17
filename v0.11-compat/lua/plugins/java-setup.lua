@@ -51,7 +51,7 @@ return {
 				settings = {
 					java = {
 						format = {
-							comments = { enabled = true },
+							comments = { enabled = false },
 							enabled = true,
 							insertSpaces = true,
 							onType = { enabled = false },
@@ -109,8 +109,8 @@ return {
 					map("n", "<leader>db", require("dap").toggle_breakpoint, "Debug: Toggle Breakpoint")
 					map("n", "<leader>ds", require("dap").continue, "Debug: Start/Continue")
 					map("n", "<leader>dc", require("dapui").close, "Close Debug UI")
-					map("n", "<C-]>", require("dap").step_over, "Debug: Step Over")
-					map("n", "<C-[>", require("dap").step_into, "Debug: Step Into")
+					map("n", "<F11>", require("dap").step_over, "Debug: Step Over")
+					map("n", "<F12>", require("dap").step_into, "Debug: Step Into")
 				end,
 			}
 			-- Start the server

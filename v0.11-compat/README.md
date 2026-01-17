@@ -17,6 +17,7 @@ Source: https://lazy.folke.io/spec
 - [JDTLS](https://github.com/eclipse-jdtls/eclipse.jdt.ls) {[Direct Release](https://download.eclipse.org/jdtls/milestones/?d) or build from source (recommended for latest version)} (java lsp)
 - [Java Debug Adapter](https://github.com/microsoft/java-debug) {build from source (recommended for latest version)} (java dap)
 - [nodejs & npm](https://nodejs.org/en/download) (markdown-preview)
+- [Docker Language Server](https://github.com/docker/docker-language-server) (Dockerfile lsp)
 
 ### Java language server
 - Make sure to set the path of `jdtls` in the `lsp/plugins/java-setup.lua` file.

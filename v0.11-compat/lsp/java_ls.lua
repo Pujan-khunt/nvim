@@ -1,3 +1,4 @@
+-- Currently this configuration is not in use in favour for nvim-jdtls plugin.
 local JDTLS_LOCATION = os.getenv("HOME") .. "/Downloads/jdtls/"
 
 -- System detection
