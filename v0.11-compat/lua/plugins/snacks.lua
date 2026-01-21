@@ -15,7 +15,7 @@ return {
 		input = {
 			enabled = true,
 		},
-		notifier = { enabled = true },
+		-- notifier = { enabled = true },
 	},
 	init = function()
 		-- This connects Snacks to Neovim's standard UI interfaces

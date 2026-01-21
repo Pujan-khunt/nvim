@@ -50,6 +50,32 @@ return {
 			local config = {
 				settings = {
 					java = {
+						configuration = {
+							runtimes = {
+								{
+									name = "JavaSE-21",
+									path = "/usr/lib/jvm/java-21-openjdk",
+									default = true,
+								},
+								{
+									name = "JavaSE-17",
+									path = "/usr/lib/jvm/java-17-openjdk",
+								},
+							},
+						},
+						-- Tell JDTLS to load sources.
+						-- This works for both dependencies and the JDK standard library.
+						eclipse = {
+							downloadSources = true,
+						},
+						maven = {
+							downloadSources = true,
+						},
+						references = {
+							includeDecompiledSources = true,
+						},
+						signatureHelp = { enabled = true },
+						contentProvider = { preferred = "fernflower" }, -- Fallback to decompiler if source not found
 						format = {
 							comments = { enabled = false },
 							enabled = true,
@@ -95,11 +121,13 @@ return {
 
 				on_attach = function(_, bufnr)
 					-- Activate the debugger
+					require("jdtls.setup").add_commands()
 					jdtls.setup_dap({
 						hotcodereplace = "auto",
 						config_overrides = {},
 					})
-					require("jdtls.dap").setup_dap_main_class_configs()
+					-- .add_commands()
+					-- require("jdtls.dap").setup_dap_main_class_configs()
 
 					-- Keymappings for debugging
 					local function map(mode, lhs, rhs, desc)

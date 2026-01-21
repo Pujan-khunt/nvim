@@ -19,6 +19,7 @@ Source: https://lazy.folke.io/spec
 - [nodejs & npm](https://nodejs.org/en/download) (markdown-preview)
 - [Docker Language Server](https://github.com/docker/docker-language-server) (Dockerfile lsp)
 - [Yaml Language Server](https://github.com/redhat-developer/yaml-language-server) (Yaml LSP)
+- [extra/openjdk21-src](https://archlinux.org/packages/extra/x86_64/openjdk21-src/) (java 21 source files)
 
 ### Java language server
 - Make sure to set the path of `jdtls` in the `lsp/plugins/java-setup.lua` file.
