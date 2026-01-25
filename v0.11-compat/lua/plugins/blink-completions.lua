@@ -55,7 +55,19 @@ return {
 			per_filetype = {
 				lua = { inherit_defaults = true, "lazydev" },
 			},
-			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			default = function()
+				local success, node = pcall(vim.treesitter.get_node)
+
+				if success and node then
+					if
+						vim.tbl_contains({ "comment", "comment_content", "line_comment", "block_comment" }, node:type())
+					then
+						return { "buffer" }
+					end
+				end
+
+				return { "lazydev", "lsp", "path", "snippets", "buffer" }
+			end,
 			providers = {
 				lazydev = {
 					name = "LazyDev",

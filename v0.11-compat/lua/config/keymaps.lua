@@ -42,6 +42,9 @@ map({ "v" }, "<leader>y", '"+y', { desc = "Copy selection into clipboard" })
 -- Cut contents into clipboard
 map({ "x" }, "<leader>d", '"+d', { desc = "Cut selection into clipboard" })
 
+-- Paste contents from clipboard
+map({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
+
 -- Remap redo to Shift + U
 map("n", "<S-u>", "<C-r>", { desc = "Redo" })
 
@@ -103,7 +106,7 @@ map("n", "<leader>dl", "<cmd>checkhealth vim.lsp<CR>", { desc = "Check vim.lsp h
 map({ "n", "t" }, "<C-h>", "<cmd>wincmd h<CR>", { desc = "Navigate to left window" })
 map({ "n", "t" }, "<C-l>", "<cmd>wincmd l<CR>", { desc = "Navigate to right window" })
 
-map("n", "<Esc><Esc>", "<Esc><Esc>", { desc = "Disable opencode double-escape trigger" })
+-- map("n", "<Esc><Esc>", "<Esc><Esc>", { desc = "Disable opencode double-escape trigger" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Disable opencode double-escape trigger" })
 
 -- TODO: Backspace using a Control + ? in commmandline

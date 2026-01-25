@@ -9,10 +9,9 @@ return {
 			QUESTION = {
 				icon = "", -- Icon to show
 				color = "warning", -- Color group (info, warning, error, hint, test)
-				alt = { "QUES", "faq" }, -- Alternate aliases for the same tag
+				alt = { "Que", "faq" }, -- Alternate aliases for the same tag
 			},
-			-- You can also override defaults here if you want:
-			-- TODO = { icon = " ", color = "info" },
+			ANSWER = { icon = " ", color = "info", alt = { "Ans" } },
 		},
 		highlight = {
 			before = "", -- "fg" or "bg" or empty

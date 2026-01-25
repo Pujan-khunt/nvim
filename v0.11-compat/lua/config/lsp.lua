@@ -9,14 +9,12 @@ local globalConfig = {
 }
 vim.lsp.config("*", globalConfig)
 
-vim.lsp.enable({ "lua_ls", "astro_ls", "go_ls", "docker_ls" })
+vim.lsp.enable({ "lua_ls", "astro_ls", "go_ls", "docker_ls", "yaml_ls" })
 
 vim.diagnostic.config({
-	virtual_text = true,
 	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
-	float = { border = "rounded", source = true, header = "", prefix = "" },
+	virtual_text = true,
+	-- virtual_lines = true, -- Slightly annoying when virtual_text is also enabled.
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "󰅚 ",
@@ -28,5 +26,11 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
 			[vim.diagnostic.severity.WARN] = "WarningMsg",
 		},
+	},
+	update_in_insert = false,
+	severity_sort = true,
+	jump = {
+		float = true,
+		wrap = true,
 	},
 })

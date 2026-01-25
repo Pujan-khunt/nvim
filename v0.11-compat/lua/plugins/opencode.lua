@@ -2,6 +2,7 @@
 --- @type LazySpec
 return {
 	"NickvanDyke/opencode.nvim",
+	enabled = false,
 	dependencies = {
 		{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 	},
