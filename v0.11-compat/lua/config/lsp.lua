@@ -9,7 +9,14 @@ local globalConfig = {
 }
 vim.lsp.config("*", globalConfig)
 
-vim.lsp.enable({ "lua_ls", "astro_ls", "go_ls", "docker_ls", "yaml_ls" })
+vim.lsp.enable({
+	"lua_ls",
+	"astro_ls",
+	"go_ls",
+	"docker_ls",
+	"yaml_ls",
+	"ts_ls",
+})
 
 vim.diagnostic.config({
 	underline = true,
