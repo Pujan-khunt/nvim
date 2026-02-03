@@ -112,3 +112,15 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Disable opencode double-escape t
 -- TODO: Backspace using a Control + ? in commmandline
 -- TODO: Scroll up and down while treesitter mode is active in search(commandline)
 -- TODO: Create the 'n' modifier or whatever it is called to be used for the next node/occurence. Eg. cin" will c-change i-inner n-next "-double-quote, this should wipe the contents of the next double quotes
+
+map("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Navigate to next quickfix list item" })
+map("n", "<C-p>", "<cmd>cprevious<CR>", { desc = "Navigate to previous quickfix list item" })
+map("n", "<C-y>", function()
+	if vim.g.quickfix_enabled == 1 then
+		vim.g.quickfix_enabled = 0
+		vim.cmd("cclose")
+	else
+		vim.g.quickfix_enabled = 1
+		vim.cmd("copen")
+	end
+end)
