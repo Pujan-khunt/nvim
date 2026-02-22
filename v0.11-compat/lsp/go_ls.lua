@@ -9,6 +9,7 @@ return {
 
 	settings = {
 		gopls = {
+			gofumpt = true,
 			analyses = {
 				unusedparams = true,
 				unusedvariable = true,
@@ -21,6 +22,15 @@ return {
 			semanticTokens = true,
 			staticcheck = true,
 			usePlaceholders = true,
+			hints = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				compositeLiteralTypes = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				parameterNames = true,
+				rangeVariableTypes = true,
+			},
 		},
 	},
 }

@@ -107,7 +107,7 @@ map({ "n", "t" }, "<C-h>", "<cmd>wincmd h<CR>", { desc = "Navigate to left windo
 map({ "n", "t" }, "<C-l>", "<cmd>wincmd l<CR>", { desc = "Navigate to right window" })
 
 -- map("n", "<Esc><Esc>", "<Esc><Esc>", { desc = "Disable opencode double-escape trigger" })
-map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Disable opencode double-escape trigger" })
+-- map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Disable opencode double-escape trigger" })
 
 -- TODO: Backspace using a Control + ? in commmandline
 -- TODO: Scroll up and down while treesitter mode is active in search(commandline)
@@ -124,3 +124,5 @@ map("n", "<C-y>", function()
 		vim.cmd("copen")
 	end
 end)
+
+map({ "n", "v" }, "<leader>cl", vim.lsp.codelens.run, { desc = "Open codelens" })

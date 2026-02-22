@@ -3,17 +3,16 @@ local jdtls = require("jdtls")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
 
-local debug_adapter_jar = vim.fn.glob(
-	home .. "/Downloads/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
-)
+local debug_adapter_jar = vim.fn.glob("/usr/share/java-debug/com.microsoft.java.debug.plugin.jar")
 if debug_adapter_jar == "" then
-	vim.notify("❌ Debug adapter JAR not found. Check your ~/Downloads/java-debug path.", vim.log.levels.ERROR)
+	vim.notify("❌ Debug adapter JAR not found. Check your java-debug installation.", vim.log.levels.ERROR)
 end
 
 -- Only 'bundles' are needed for debugging
 local bundles = { debug_adapter_jar }
 
-local jdtls_path = home .. "/Downloads/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository"
+-- Update jdtls path to the AUR installation location
+local jdtls_path = "/usr/share/java/jdtls"
 local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local config_dir = "config_linux"
 
@@ -23,9 +22,13 @@ local config = {
 			configuration = {
 				runtimes = {
 					{
+						name = "JavaSE-25",
+						path = "/usr/lib/jvm/java-25-openjdk",
+						default = true,
+					},
+					{
 						name = "JavaSE-21",
 						path = "/usr/lib/jvm/java-21-openjdk",
-						default = true,
 					},
 					{
 						name = "JavaSE-17",
