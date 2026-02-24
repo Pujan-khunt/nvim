@@ -31,7 +31,7 @@ return {
 		},
 
 		automatic_enable = {
-			exclude = { "lua_ls" },
+			exclude = { "lua_ls", "jdtls" },
 		},
 	},
 }
