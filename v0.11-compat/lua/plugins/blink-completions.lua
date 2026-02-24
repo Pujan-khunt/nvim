@@ -53,7 +53,7 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			per_filetype = {
-				lua = { inherit_defaults = true, "lazydev" },
+				lua = { inherit_defaults = true },
 			},
 			default = function()
 				local success, node = pcall(vim.treesitter.get_node)
@@ -66,14 +66,9 @@ return {
 					end
 				end
 
-				return { "lazydev", "lsp", "path", "snippets", "buffer" }
+				return { "lsp", "path", "snippets", "buffer" }
 			end,
 			providers = {
-				lazydev = {
-					name = "LazyDev",
-					module = "lazydev.integrations.blink",
-					score_offset = 100,
-				},
 				snippets = {
 					name = "Snippets",
 					module = "blink.cmp.sources.snippets",

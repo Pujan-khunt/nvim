@@ -3,7 +3,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",
-	version = false, -- use the latest parser versions
+	version = false,
 	build = ":TSUpdate",
 	lazy = false, -- treesitter doesn't support lazy loading
 	config = function()

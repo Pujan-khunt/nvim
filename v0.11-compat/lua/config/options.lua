@@ -1,24 +1,13 @@
 -- Leader key
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
 local opt = vim.opt
-
--- Enable auto write (kinda like autosave)
-opt.autowrite = true
-
-opt.autoindent = true
-
--- opt.clipboard = "unnamedplus"
-
--- Hide * markup for bold and italic, but not markers with substitutions
-opt.conceallevel = 2
 
 -- Confirm to save changes before exiting modified buffer
 opt.confirm = true
 
 -- Enable highlighting of the current line
-opt.cursorline = true
+-- opt.cursorline = true
 
 -- Use spaces instead of tabs
 opt.expandtab = true
@@ -35,10 +24,6 @@ opt.jumpoptions = "stack,view"
 -- Wrap lines at convenient points, only works if wrap = true
 opt.linebreak = true
 
--- Show some invisible characters
--- opt.list = true
--- opt.listchars = "tab:» ,trail:·,nbsp:␣"
-
 -- Print line number
 opt.number = true
 
@@ -46,7 +31,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- Always show the signcolumn, otherwise it would shift the text each time
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:2"
 
 -- Do't ignore case with capitals
 opt.smartcase = true

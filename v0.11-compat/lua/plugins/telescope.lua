@@ -37,20 +37,6 @@ return {
 			end,
 			desc = "Help tags picker",
 		},
-		{
-			"<leader>fs",
-			function()
-				require("telescope.builtin").search_history()
-			end,
-			desc = "Telescope history picker",
-		},
-		{
-			"<leader>nh",
-			function()
-				require("telescope").load_extension("notify")
-				require("telescope").extensions.notify.notify()
-			end,
-		},
 	},
 	opts = {
 		defaults = {
@@ -60,8 +46,8 @@ return {
 			results_title = "You can't spell advertisements without semen between the tits",
 
 			-- Ignore .env files to risk exposing secrets
-			-- Ignore node_modules and .git for obvious reasons
-			file_ignore_patterns = { "%.env", "^node_modules/", "^.git" },
+			-- Ignore node_modules, .git and .class for obvious reasons
+			file_ignore_patterns = { "%.env", "^node_modules/", "^.git", "%.class" },
 			mappings = {
 				-- See telescope.actions for more
 				i = {
@@ -70,7 +56,7 @@ return {
 					["<C-v>"] = "file_vsplit",
 					["<C-h>"] = "file_split",
 					["<C-l>"] = "select_default",
-					["<C-;>"] = "close",
+					["<C-o>"] = "close",
 				},
 			},
 		},

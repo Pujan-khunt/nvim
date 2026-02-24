@@ -3,13 +3,20 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-
-	--- @module "lualine"
 	opts = {
-		globalstatus = true,
+		options = {
+			theme = "kanagawa",
+			globalstatus = true,
+			component_separators = { left = "│", right = "│" },
+			section_separators = { left = "", right = "" },
+		},
 		sections = {
-			lualine_x = { "lsp_status" },
-			lualine_y = {
+			lualine_a = { "mode" },
+			lualine_b = { "branch", "diff", "diagnostics" },
+			lualine_c = {
+				{ "filename", path = 1 }, -- path = 1 shows the relative path
+			},
+			lualine_x = {
 				function()
 					local conform = require("conform")
 					local status, formatters = pcall(conform.list_formatters_to_run, 0)
@@ -27,13 +34,11 @@ return {
 					end
 					return ""
 				end,
+				"encoding",
+				"filetype",
 			},
-			lualine_z = { "progress" },
-		},
-		tabline = {
-			lualine_x = { "b:toggle_number" },
-			lualine_y = { "filename" },
-			lualine_z = { "filesize" },
+			lualine_y = { "progress" },
+			lualine_z = { "location" },
 		},
 	},
 }

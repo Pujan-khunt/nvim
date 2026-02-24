@@ -5,4 +5,4 @@ require("config.lazy")
 require("config.lsp")
 
 -- apply the colorscheme
-vim.cmd("colorscheme cyberdream")
+vim.cmd("colorscheme kanagawa")

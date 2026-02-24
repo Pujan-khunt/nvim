@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
+-- Auto refresh codelens
 vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
 	group = augroup("auto_refresh_codelens"),
 	pattern = "*",
@@ -34,6 +35,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
 	end,
 })
 
+-- Much needed keymaps for lsp
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = augroup("lsp_keybinds"),
 	callback = function(args)
@@ -50,7 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "go", vim.lsp.buf.type_definition, "LSP: Go to Type Definition")
 		map("n", "gr", builtin.lsp_references, "LSP: Go to References")
 		map("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
-		map("i", "<C-u>", vim.lsp.buf.signature_help, "LSP: Signature Help")
 		map("n", "M", vim.lsp.buf.signature_help, "LSP: Signature Help")
 		map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename")
 		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "LSP: Code Action")

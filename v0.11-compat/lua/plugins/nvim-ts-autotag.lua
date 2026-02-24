@@ -1,3 +1,4 @@
+--- Uses treesitter to autoclose and autorename html tags.
 --- @module "lazy"
 --- @type LazySpec
 return {

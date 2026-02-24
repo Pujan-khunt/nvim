@@ -4,6 +4,16 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	keys = {
+		{
+			"<C-A-j>",
+			function()
+				require("snacks").lazygit()
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Lazygit",
+		},
+	},
 	---@type snacks.Config
 	opts = {
 		picker = {
@@ -15,7 +25,7 @@ return {
 		input = {
 			enabled = true,
 		},
-		-- notifier = { enabled = true },
+		lazygit = {},
 	},
 	init = function()
 		-- This connects Snacks to Neovim's standard UI interfaces
