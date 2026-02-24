@@ -97,6 +97,7 @@ local config = {
 				enabled = true,
 				settings = {
 					url = vim.fn.stdpath("config") .. "/lua/config/eclipse-formatter.xml",
+					profile = "GoogleStyle",
 				},
 			},
 		},
