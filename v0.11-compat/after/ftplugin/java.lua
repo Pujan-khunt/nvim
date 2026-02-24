@@ -24,6 +24,18 @@ local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local config_dir = jdtls_path .. "/config_linux"
 
+local java_debug_adapter_path = vim.fn.stdpath("data")
+	.. "/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"
+local java_debug_adapter = vim.fn.glob(java_debug_adapter_path, true)
+
+local java_test_path = vim.fn.stdpath("data") .. "/mason/packages/java-test/extension/server/*.jar"
+local java_test = vim.fn.glob(java_test_path, true)
+
+local bundles = {
+	java_debug_adapter,
+	java_test,
+}
+
 --- @type vim.lsp.Config
 local config = {
 	-- The command that starts the language server
@@ -48,6 +60,9 @@ local config = {
 		workspace_dir,
 	},
 	root_dir = require("jdtls.setup").find_root({ ".git, mvnw, gradlew", "pom.xml", "build.gradle" }),
+	init_options = {
+		bundles = bundles,
+	},
 	settings = {
 		java = {
 			signatureHelp = { enabled = true },
@@ -91,9 +106,30 @@ local config = {
 			vim.keymap.set(mode, keybind, command, { desc = description, buffer = bufnr })
 		end
 
+		-- Extract keymaps
 		map("n", "<leader>jv", jdtls.extract_variable, "Java: Extract Variable")
 		map("n", "<leader>jc", jdtls.extract_constant, "Java: Extract Constant")
 		map("v", "<leader>jm", jdtls.extract_method, "Java: Extract Method")
+
+		-- Select symbols from current and parent
+		map("n", "<leader>jj", jdtls.extended_symbols, "Java: Extended Symbols")
+
+		jdtls.setup_dap({ hotcodereplace = "auto" })
+
+		-- Debugging Keymaps
+		local dap = require("dap")
+		map("n", "<F5>", dap.continue, "Debug: Start/Continue")
+		map("n", "<F10>", dap.step_over, "Debug: Step Over")
+		map("n", "<F11>", dap.step_into, "Debug: Step Into")
+		map("n", "<F12>", dap.step_out, "Debug: Step Out")
+		map("n", "<leader>b", dap.toggle_breakpoint, "Debug: Toggle Breakpoint")
+		map("n", "<leader>B", function()
+			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+		end, "Debug: Conditional Breakpoint")
+
+		-- Java Specific testing triggers
+		map("n", "<leader>tc", jdtls.test_class, "Java: Test Class")
+		map("n", "<leader>tm", jdtls.test_nearest_method, "Java: Test Method")
 	end,
 }
 
