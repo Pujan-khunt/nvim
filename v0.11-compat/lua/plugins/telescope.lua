@@ -3,7 +3,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	cmd = "Telescope", -- Lazy load based on this command.
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	},
 	keys = {
 		{
 			"<leader>fd",
@@ -19,7 +22,8 @@ return {
 		{
 			"<leader>lg",
 			function()
-				require("telescope.builtin").live_grep({ cwd = vim.fn.getcwd() })
+				local theme = require("telescope.themes").get_dropdown({ cwd = vim.fn.getcwd() })
+				require("telescope.builtin").live_grep(theme)
 			end,
 			desc = "Live grep in current working directory",
 		},
