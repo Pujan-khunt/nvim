@@ -126,3 +126,6 @@ map("n", "<C-y>", function()
 end)
 
 map({ "n", "v" }, "<leader>cl", vim.lsp.codelens.run, { desc = "Open codelens" })
+
+-- Search for visually selected text with <C-p>
+map("v", "<C-p>", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]], { desc = "Search for selection" })

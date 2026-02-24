@@ -8,6 +8,8 @@ return {
 	--- @module "notify"
 	--- @type notify.Config
 	opts = {
+		timeout = 2000,
 		merge_duplicates = 1,
+		render = "compact",
 	},
 }

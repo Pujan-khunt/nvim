@@ -6,7 +6,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	keys = {
 		{
-			"<leader>ff",
+			"<leader>fd",
 			function()
 				require("telescope.builtin").find_files({
 					cwd = vim.fn.getcwd(),
