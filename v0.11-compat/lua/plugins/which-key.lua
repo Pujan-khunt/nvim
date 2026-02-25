@@ -1,7 +1,13 @@
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		preset = "modern",
+		-- Don't show keybinds which don't have a description
+		filter = function(mapping)
+			return mapping.desc and mapping.desc ~= ""
+		end,
+	},
 	keys = {
 		{
 			"<leader>?",
