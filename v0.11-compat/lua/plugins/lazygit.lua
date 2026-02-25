@@ -22,7 +22,7 @@ return {
 		},
 		{
 			"<C-A-f>",
-			"<cmd>LazyGitCurrentFile<CR>",
+			"<cmd>LazyGitFilterCurrentFile<CR>",
 			mode = { "n", "t" },
 			desc = "Lazygit Current File",
 		},
