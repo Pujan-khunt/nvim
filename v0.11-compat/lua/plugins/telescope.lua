@@ -11,11 +11,12 @@ return {
 		{
 			"<leader>fd",
 			function()
-				require("telescope.builtin").find_files({
+				local theme = require("telescope.themes").get_dropdown({
 					cwd = vim.fn.getcwd(),
 					hidden = true,
 					follow = true, -- Follow symlinks to edit the original file.
 				})
+				require("telescope.builtin").find_files(theme)
 			end,
 			desc = "Find files in current working directory",
 		},
@@ -37,7 +38,8 @@ return {
 		{
 			"<leader>fh",
 			function()
-				require("telescope.builtin").help_tags({ lang = "en" })
+				local theme = require("telescope.themes").get_ivy({ lang = "en", layout_config = { height = 0.5 } })
+				require("telescope.builtin").help_tags(theme)
 			end,
 			desc = "Help tags picker",
 		},

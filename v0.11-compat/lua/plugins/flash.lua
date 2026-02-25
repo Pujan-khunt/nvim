@@ -5,12 +5,9 @@ return {
 	event = "VeryLazy",
 	---@type Flash.Config
 	opts = {
-		jump = {
-			nohlsearch = true, -- Clear highlight after search
-		},
-		modes = {
-			search = { enabled = true },
-		},
+		mode = "fuzzy",
+		incremental = true,
+		rainbow = { enabled = true },
 	},
 	keys = {
 		{
