@@ -68,3 +68,6 @@ map("n", "<C-y>", function()
 end)
 
 map({ "n", "v" }, "<leader>cl", vim.lsp.codelens.run, { desc = "Open codelens" })
+
+map({ "n", "v" }, "[t", "<cmd>tabprev<CR>", { desc = "Open Previous Tab" })
+map({ "n", "v" }, "]t", "<cmd>tabnext<CR>", { desc = "Open Next Tab" })

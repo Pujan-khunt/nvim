@@ -9,9 +9,7 @@ return {
 			},
 			workspace = {
 				-- make the server aware of Neovim runtime files
-				library = {
-					vim.env.VIMRUNTIME,
-				},
+				library = {},
 				checkThirdParty = false,
 			},
 			telemetry = { enable = false },

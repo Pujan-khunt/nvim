@@ -35,30 +35,7 @@ return {
 					return ""
 				end,
 				"encoding",
-				{
-					"filetype",
-					icon_only = true,
-					separator = "",
-					padding = { left = 1, right = 0 },
-				},
-				{
-					function()
-						-- Fetch LSP clients attached to the current buffer
-						local clients = vim.lsp.get_clients({ bufnr = 0 })
-						if next(clients) == nil then
-							return "No LSP"
-						end
-
-						-- Add all in a table
-						local client_names = {}
-						for _, client in ipairs(clients) do
-							table.insert(client_names, client.name)
-						end
-
-						return table.concat(client_names, ", ")
-					end,
-					padding = { left = 1, right = 1 },
-				},
+				"filetype",
 			},
 			lualine_y = { "progress" },
 			lualine_z = { "location" },

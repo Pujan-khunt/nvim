@@ -21,6 +21,18 @@ return {
 			desc = "Find files in current working directory",
 		},
 		{
+			"<leader>fo",
+			function()
+				local theme = require("telescope.themes").get_dropdown({
+					cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
+					hidden = true,
+					follow = true, -- Follow symlinks to edit the original file.
+				})
+				require("telescope.builtin").find_files(theme)
+			end,
+			desc = "Find files in current working directory",
+		},
+		{
 			"<leader>lg",
 			function()
 				local theme = require("telescope.themes").get_dropdown({ cwd = vim.fn.getcwd() })
@@ -53,7 +65,7 @@ return {
 
 			-- Ignore .env files to risk exposing secrets
 			-- Ignore node_modules, .git and .class for obvious reasons
-			file_ignore_patterns = { "%.env", "^node_modules/", "^.git", "%.class" },
+			file_ignore_patterns = { "%.env", "^node_modules/", ".git/", "%.class" },
 			mappings = {
 				-- See telescope.actions for more
 				i = {
