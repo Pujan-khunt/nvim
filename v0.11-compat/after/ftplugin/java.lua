@@ -65,14 +65,20 @@ local config = {
 	},
 	settings = {
 		java = {
-			signatureHelp = { enabled = true },
+			signatureHelp = { description = { enabled = true } },
+			codeGeneration = {
+				generateComments = true,
+				useBlocks = true,
+			},
+			edit = {
+				smartsemicolonDetection = { enabled = true },
+			},
+			implementationCodelens = "all",
+			referencesCodelens = { enabled = true },
+			saveActions = { organizeImports = true },
 			completion = {
-				favoriteStaticMembers = {
-					"org.junit.jupiter.api.Assertions.*",
-					"java.util.Objects.requireNonNull",
-					"java.util.Objects.requireNonNullElse",
-					"org.mockito.Mockito.*",
-				},
+				chain = { enabled = true },
+				collapseCompletionItems = true,
 			},
 			sources = {
 				organizeImports = {
@@ -94,7 +100,6 @@ local config = {
 				},
 			},
 			format = {
-				enabled = true,
 				settings = {
 					url = vim.fn.stdpath("config") .. "/lua/config/eclipse-formatter.xml",
 					profile = "GoogleStyle",
@@ -116,17 +121,6 @@ local config = {
 		map("n", "<leader>jj", jdtls.extended_symbols, "Java: Extended Symbols")
 
 		jdtls.setup_dap({ hotcodereplace = "auto" })
-
-		-- Debugging Keymaps
-		local dap = require("dap")
-		map("n", "<F5>", dap.continue, "Debug: Start/Continue")
-		map("n", "<F10>", dap.step_over, "Debug: Step Over")
-		map("n", "<F11>", dap.step_into, "Debug: Step Into")
-		map("n", "<F12>", dap.step_out, "Debug: Step Out")
-		map("n", "<leader>b", dap.toggle_breakpoint, "Debug: Toggle Breakpoint")
-		map("n", "<leader>B", function()
-			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-		end, "Debug: Conditional Breakpoint")
 
 		-- Java Specific testing triggers
 		map("n", "<leader>tc", jdtls.test_class, "Java: Test Class")

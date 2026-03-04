@@ -7,7 +7,15 @@ return {
 		{
 			"<leader>hg",
 			"<cmd>Gitsigns<CR>",
-			{ "n", "v" },
+			mode = { "n", "v" },
+			desc = "Select Gitsigns Action",
+		},
+		{
+			"<leader>ph",
+			function()
+				require("gitsigns").preview_hunk_inline()
+			end,
+			mode = { "n" },
 		},
 		{
 			"]h",

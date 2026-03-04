@@ -43,12 +43,33 @@ return {
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
 			accept = { auto_brackets = { enabled = true } },
-			documentation = { auto_show = true, auto_show_delay_ms = 500 },
 			list = { selection = { preselect = true, auto_insert = false } },
-			-- menu = { auto_show },
 			ghost_text = { enabled = true, show_with_selection = true },
+			menu = {
+				border = "rounded",
+				scrolloff = 1,
+				scrollbar = false,
+				draw = {
+					padding = 1,
+					gap = 1,
+					columns = {
+						{ "kind_icon" },
+						{ "label", "label_description", gap = 1 },
+						{ "kind" },
+						{ "source_name" },
+					},
+				},
+			},
+			documentation = {
+				window = {
+					border = "rounded",
+					scrollbar = false,
+					winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+				},
+				auto_show = true,
+				auto_show_delay_ms = 500,
+			},
 		},
-
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
