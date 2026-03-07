@@ -40,7 +40,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = augroup("lsp_keybinds"),
 	callback = function(args)
 		local bufnr = args.buf
-		local builtin = require("telescope.builtin")
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+		-- Prevents gopls from attaching onto buffers opened by vim-fugitive plugin.
+		if client and client.name == "gopls" then
+			local buf_name = vim.api.nvim_buf_get_name(bufnr)
+			if buf_name:match("^fugitive://") then
+				vim.lsp.buf_detach_client(bufnr, client.id)
+				return
+			end
+		end
 
 		local function map(mode, keybind, command, description)
 			vim.keymap.set(mode, keybind, command, { desc = description, buffer = bufnr })
@@ -50,7 +59,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "gD", vim.lsp.buf.declaration, "LSP: Go to Declaration")
 		map("n", "gi", vim.lsp.buf.implementation, "LSP: Go to Implementation")
 		map("n", "go", vim.lsp.buf.type_definition, "LSP: Go to Type Definition")
-		map("n", "gr", builtin.lsp_references, "LSP: Go to References")
+		map("n", "gr", require("telescope.builtin").lsp_references, "LSP: Go to References")
 		map("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
 		map("n", "M", vim.lsp.buf.signature_help, "LSP: Signature Help")
 		map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename")
