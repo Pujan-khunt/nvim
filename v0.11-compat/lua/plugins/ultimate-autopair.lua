@@ -5,10 +5,11 @@ return {
 	event = { "InsertEnter", "CmdlineEnter" },
 	branch = "v0.6",
 	opts = {
-		space2 = { enable = true },
-		fastwarp = { enable = true, multi = true },
-		extensions = {
-			suround = { p = 20 },
+		fastwarp = {
+			map = "<C-l>",
+			rmap = "<C-h>",
+			cmap = "<C-l>",
+			rcmap = "<C-h>",
 		},
 	},
 }
