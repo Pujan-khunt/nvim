@@ -12,7 +12,7 @@ opt.confirm = true
 -- Use spaces instead of tabs
 opt.expandtab = true
 
--- Ignore case
+-- Ignore case (required for `smartcase` to work)
 opt.ignorecase = true
 
 -- preview incremental substitute
@@ -63,7 +63,7 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 
 -- Dsiable persistent highlights after search
-opt.hlsearch = false
+opt.hlsearch = true
 
 -- Apply border on all floating windows
 opt.winborder = "rounded"

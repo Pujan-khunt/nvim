@@ -71,3 +71,7 @@ map({ "n", "v" }, "<leader>cl", vim.lsp.codelens.run, { desc = "Open codelens" }
 
 map({ "n", "v" }, "[t", "<cmd>tabprev<CR>", { desc = "Open Previous Tab" })
 map({ "n", "v" }, "]t", "<cmd>tabnext<CR>", { desc = "Open Next Tab" })
+
+map("n", "*", "*<S-N>", { desc = "Prevent moving to the next instance" })
+
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Remove search highlights" })
