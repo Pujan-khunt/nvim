@@ -87,7 +87,7 @@ return {
 					end
 				end
 
-				return { "lsp", "path", "snippets", "buffer" }
+				return { "lsp", "path", "buffer", "snippets" }
 			end,
 			providers = {
 				snippets = {

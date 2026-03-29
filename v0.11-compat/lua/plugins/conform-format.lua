@@ -8,6 +8,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
+			html = { "prettier" },
 		},
 		--- @type conform.FormatOpts
 		format_after_save = {

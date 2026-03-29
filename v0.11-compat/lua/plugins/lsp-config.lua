@@ -28,6 +28,9 @@ return {
 			"lua_ls",
 			"yamlls",
 			"jdtls",
+			"buf_ls",
+			"tailwindcss",
+			"clangd",
 		},
 
 		automatic_enable = {

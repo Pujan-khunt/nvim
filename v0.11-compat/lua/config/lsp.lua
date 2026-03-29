@@ -11,6 +11,11 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.INFO] = "»", -- or 
 		},
 	},
+	float = {
+		title_pos = "center",
+		title = "Diagnostics",
+		source = true,
+	},
 })
 
 vim.lsp.enable({ "lua_ls", "jdtls" })

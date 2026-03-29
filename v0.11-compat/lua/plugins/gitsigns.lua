@@ -11,7 +11,7 @@ return {
 			desc = "Select Gitsigns Action",
 		},
 		{
-			"<leader>ph",
+			"=",
 			function()
 				require("gitsigns").preview_hunk_inline()
 			end,
