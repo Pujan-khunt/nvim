@@ -42,12 +42,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local bufnr = args.buf
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-		-- Prevents gopls from attaching onto buffers opened by vim-fugitive plugin.
-		if client and client.name == "gopls" then
-			local buf_name = vim.api.nvim_buf_get_name(bufnr)
-			if buf_name:match("^fugitive://") then
-				vim.lsp.buf_detach_client(bufnr, client.id)
-				return
+		if client then
+			-- Prevents gopls from attaching onto buffers opened by vim-fugitive plugin.
+			if client.name == "gopls" then
+				local buf_name = vim.api.nvim_buf_get_name(bufnr)
+				if buf_name:match("^fugitive://") then
+					vim.lsp.buf_detach_client(bufnr, client.id)
+					return
+				end
+			-- Disable semantic tokens from jdtls
+			elseif client.name == "jdtls" then
+				client.server_capabilities.semanticTokensProvider = nil
 			end
 		end
 

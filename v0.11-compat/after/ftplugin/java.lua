@@ -65,10 +65,19 @@ local config = {
 	},
 	settings = {
 		java = {
-			signatureHelp = { description = { enabled = true } },
+			signatureHelp = {
+				enabled = true,
+				description = { enabled = true },
+			},
 			codeGeneration = {
 				generateComments = true,
 				useBlocks = true,
+			},
+			eclipse = {
+				downloadSources = true,
+			},
+			maven = {
+				downloadSources = true,
 			},
 			edit = {
 				smartsemicolonDetection = { enabled = true },

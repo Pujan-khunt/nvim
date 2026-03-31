@@ -42,6 +42,7 @@ return {
 			"go",
 			"html",
 			"javascript",
+			"javadoc",
 			"json",
 			"latex",
 			"lua",
