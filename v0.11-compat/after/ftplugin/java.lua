@@ -129,6 +129,7 @@ local config = {
 		-- Select symbols from current and parent
 		map("n", "<leader>jj", jdtls.extended_symbols, "Java: Extended Symbols")
 
+		---@diagnostic disable-next-line: missing-fields
 		jdtls.setup_dap({ hotcodereplace = "auto" })
 
 		-- Java Specific testing triggers

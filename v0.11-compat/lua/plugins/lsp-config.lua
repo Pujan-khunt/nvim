@@ -31,6 +31,7 @@ return {
 			"buf_ls",
 			"tailwindcss",
 			"clangd",
+			"pylsp",
 		},
 
 		automatic_enable = {
