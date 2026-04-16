@@ -98,8 +98,8 @@ local config = {
 			configuration = {
 				runtimes = {
 					{
-						name = "JavaSE-25",
-						path = "/usr/lib/jvm/java-25-openjdk",
+						name = "JavaSE-26",
+						path = "/usr/lib/jvm/java-26-openjdk",
 						default = true,
 					},
 					{
