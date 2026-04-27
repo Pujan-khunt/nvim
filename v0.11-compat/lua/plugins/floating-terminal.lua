@@ -10,10 +10,16 @@ return {
 			desc = "Toggle floating terminal",
 		},
 	},
+	--- @module "toggleterm"
+	--- @type ToggleTermConfig
+	---@diagnostic disable-next-line: missing-fields
 	opts = {
-		direction = "horizontal",
+		direction = "float",
+		autochdir = true,
+		winbar = {
+			enabled = true,
+		},
 		float_opts = {
-			border = "double",
 			title_pos = "center",
 		},
 	},

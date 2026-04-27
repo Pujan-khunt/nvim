@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
 		-- Only refresh if the client supports it
 		local client = vim.lsp.get_clients({ bufnr = 0 })[1]
 		if client and client:supports_method("textDocument/codeLens") then
-			vim.lsp.codelens.refresh({ bufnr = 0 })
+			vim.lsp.codelens.enable(true, { bufnr = 0 })
 		end
 	end,
 })
