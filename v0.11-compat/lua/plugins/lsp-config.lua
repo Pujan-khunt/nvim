@@ -32,6 +32,7 @@ return {
 			"tailwindcss",
 			"clangd",
 			"pylsp",
+			"jsonls",
 		},
 
 		automatic_enable = {

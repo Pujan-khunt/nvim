@@ -23,17 +23,17 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- Auto refresh codelens
-vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
-	group = augroup("auto_refresh_codelens"),
-	pattern = "*",
-	callback = function()
-		-- Only refresh if the client supports it
-		local client = vim.lsp.get_clients({ bufnr = 0 })[1]
-		if client and client:supports_method("textDocument/codeLens") then
-			vim.lsp.codelens.enable(true, { bufnr = 0 })
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+-- 	group = augroup("auto_refresh_codelens"),
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		-- Only refresh if the client supports it
+-- 		local client = vim.lsp.get_clients({ bufnr = 0 })[1]
+-- 		if client and client:supports_method("textDocument/codeLens") then
+-- 			vim.lsp.codelens.enable(true, { bufnr = 0 })
+-- 		end
+-- 	end,
+-- })
 
 -- Much needed keymaps for lsp
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -62,9 +62,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		map("n", "gd", vim.lsp.buf.definition, "LSP: Go to Definition")
 		map("n", "gD", vim.lsp.buf.declaration, "LSP: Go to Declaration")
-		map("n", "gi", vim.lsp.buf.implementation, "LSP: Go to Implementation")
 		map("n", "go", vim.lsp.buf.type_definition, "LSP: Go to Type Definition")
+		map("n", "gi", require("telescope.builtin").lsp_implementations, "LSP: Go to Implementation")
 		map("n", "gr", require("telescope.builtin").lsp_references, "LSP: Go to References")
+		map("n", "lws", require("telescope.builtin").lsp_workspace_symbols, "LSP: Show Workspace Symbols")
 		map("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
 		map("n", "M", vim.lsp.buf.signature_help, "LSP: Signature Help")
 		map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename")
@@ -75,6 +76,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "<leader>th", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
 		end, "LSP: Toggle Inlay Hints")
+
+		map("n", "<leader>tc", function()
+			vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
+		end, "LSP: Toggle CodeLens")
 
 		-- Already created defaults
 		-- map("n", "[d", vim.diagnostic.goto_prev, "Diagnostic: Go to previous")

@@ -40,7 +40,7 @@ local bundles = {
 local config = {
 	-- The command that starts the language server
 	cmd = {
-		"java",
+		"/usr/lib/jvm/java-21-openjdk/bin/java",
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -59,7 +59,13 @@ local config = {
 		"-data",
 		workspace_dir,
 	},
-	root_dir = require("jdtls.setup").find_root({ ".git, mvnw, gradlew", "pom.xml", "build.gradle" }),
+	root_dir = require("jdtls.setup").find_root({
+		".git",
+		"mvnw",
+		"gradlew",
+		"pom.xml",
+		"build.gradle",
+	}),
 	init_options = {
 		bundles = bundles,
 	},
@@ -100,11 +106,14 @@ local config = {
 					{
 						name = "JavaSE-26",
 						path = "/usr/lib/jvm/java-26-openjdk",
-						default = true,
 					},
 					{
 						name = "JavaSE-21",
 						path = "/usr/lib/jvm/java-21-openjdk",
+					},
+					{
+						name = "JavaSE-1.8",
+						path = "/usr/lib/jvm/java-8-openjdk",
 					},
 				},
 			},
@@ -133,8 +142,8 @@ local config = {
 		jdtls.setup_dap({ hotcodereplace = "auto" })
 
 		-- Java Specific testing triggers
-		map("n", "<leader>tc", jdtls.test_class, "Java: Test Class")
-		map("n", "<leader>tm", jdtls.test_nearest_method, "Java: Test Method")
+		map("n", "<leader>jtc", jdtls.test_class, "Java: Test Class")
+		map("n", "<leader>jtm", jdtls.test_nearest_method, "Java: Test Method")
 	end,
 }
 
