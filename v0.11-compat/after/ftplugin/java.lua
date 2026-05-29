@@ -60,10 +60,10 @@ local config = {
 		workspace_dir,
 	},
 	root_dir = require("jdtls.setup").find_root({
+		"pom.xml",
 		".git",
 		"mvnw",
 		"gradlew",
-		"pom.xml",
 		"build.gradle",
 	}),
 	init_options = {
@@ -110,6 +110,7 @@ local config = {
 					{
 						name = "JavaSE-21",
 						path = "/usr/lib/jvm/java-21-openjdk",
+						default = true,
 					},
 					{
 						name = "JavaSE-1.8",
@@ -118,9 +119,10 @@ local config = {
 				},
 			},
 			format = {
+				enabled = true,
 				settings = {
-					url = vim.fn.stdpath("config") .. "/lua/config/eclipse-formatter.xml",
-					profile = "GoogleStyle",
+					url = vim.fn.expand("~/.config/jdtls/java-tabs.xml"),
+					profile = "TabsProfile",
 				},
 			},
 		},

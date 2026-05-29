@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "go", vim.lsp.buf.type_definition, "LSP: Go to Type Definition")
 		map("n", "gi", require("telescope.builtin").lsp_implementations, "LSP: Go to Implementation")
 		map("n", "gr", require("telescope.builtin").lsp_references, "LSP: Go to References")
-		map("n", "lws", require("telescope.builtin").lsp_workspace_symbols, "LSP: Show Workspace Symbols")
+		map("n", "<leader>ws", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "LSP: Show Workspace Symbols")
 		map("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
 		map("n", "M", vim.lsp.buf.signature_help, "LSP: Signature Help")
 		map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename")

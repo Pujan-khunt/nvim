@@ -37,7 +37,7 @@ opt.signcolumn = "yes:2"
 opt.smartcase = true
 
 -- Insert indents automatically
-opt.smartindent = true
+-- opt.smartindent = true
 
 -- Put new windows below current
 opt.splitbelow = true
