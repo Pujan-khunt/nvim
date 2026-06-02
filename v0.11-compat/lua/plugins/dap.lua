@@ -53,6 +53,7 @@ return {
 		map("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
 		map("n", "<F12>", dap.step_out, { desc = "Debug: Step Out" })
 		map("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+		map("n", "<leader>duc", dapui.close, { desc = "Close Debug UI" })
 		map("n", "<leader>B", function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "Debug: Conditional Breakpoint" })
