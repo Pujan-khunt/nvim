@@ -1,7 +1,0 @@
-require("config.options")
-require("config.remaps")
-require("config.autocmds")
-require("config.mason-verify")
-require("core.mason-path")
-require("core.lsp")
-require("core.lazy")
