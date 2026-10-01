@@ -20,18 +20,22 @@ return {
     {
       "]h",
       function()
-        vim.cmd("normal! zz")
         require("gitsigns").nav_hunk("next")
+        vim.cmd("normal! zz")
+        require("gitsigns").preview_hunk_inline()
       end,
       mode = { "n" },
+      desc = "Previous Git Hunk"
     },
     {
       "[h",
       function()
-        vim.cmd("normal! zz")
         require("gitsigns").nav_hunk("prev")
+        vim.cmd("normal! zz")
+        require("gitsigns").preview_hunk_inline()
       end,
       mode = { "n" },
+      desc = "Next Git Hunk"
     },
   },
   opts = {},
