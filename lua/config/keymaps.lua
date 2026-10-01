@@ -55,13 +55,13 @@ map({ "n", "t" }, "<C-l>", "<cmd>wincmd l<CR>", { desc = "Navigate to right wind
 map("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Navigate to next quickfix list item" })
 map("n", "<C-p>", "<cmd>cprevious<CR>", { desc = "Navigate to previous quickfix list item" })
 map("n", "<C-y>", function()
-	if vim.g.quickfix_enabled == 1 then
-		vim.g.quickfix_enabled = 0
-		vim.cmd("cclose")
-	else
-		vim.g.quickfix_enabled = 1
-		vim.cmd("copen")
-	end
+  if vim.g.quickfix_enabled == 1 then
+    vim.g.quickfix_enabled = 0
+    vim.cmd("cclose")
+  else
+    vim.g.quickfix_enabled = 1
+    vim.cmd("copen")
+  end
 end)
 
 map({ "n", "v" }, "<leader>cl", vim.lsp.codelens.run, { desc = "Open codelens" })
