@@ -10,6 +10,18 @@ return {
       "<cmd>DiffviewToggleFiles<CR>",
       desc = "Toggle File Explorer in Diffview",
     },
+    {
+      "<leader>dx",
+      mode = { "n" },
+      "<cmd>DiffviewClose<CR>",
+      desc = "Close Diffview"
+    },
+    {
+      "<leader>fj",
+      mode = { "n" },
+      "<cmd>DiffviewFileHistory<CR>",
+      desc = "View file history for every commit using Diffview"
+    }
   },
   opts = {}
 }
